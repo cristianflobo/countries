@@ -1,5 +1,7 @@
 const initialState ={
-    countrie:[]
+    countrie:[],
+    casa:{}
+    
 }
 
 const HOME = "HOME"

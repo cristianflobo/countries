@@ -1,8 +1,10 @@
 import React from 'react'
-
+import './Inicio.css'
 const Inicio = () => {
   return (
-    <div>Inicio</div>
+    <div className='inicio' >
+    <button className='button'>Home</button>
+    </div>
   )
 }
 

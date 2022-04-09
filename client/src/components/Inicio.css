@@ -1,0 +1,26 @@
+.inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image:url(https://acegif.com/wp-content/gifs/globe-36.gif);
+    background-size:cover ;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-color: blue;
+}
+.button{
+    display: flex;
+    align-items: center;
+    border-radius: 15%;
+    color: bisque;
+    width: 150px;
+    border: none;
+    background-color: transparent;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

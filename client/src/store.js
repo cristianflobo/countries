@@ -4,6 +4,7 @@ import reducers from "./reducers/reducers"
 
 const rootReducer = combineReducers ({
     countries: reducers,
+
     
     //usuario:reducer ejemplo
 })
