@@ -1,14 +1,13 @@
 import axios from  'axios'
 
 export const inicio = (e) => async (dispatch) => {
+    console.log("HOME")
     try {    
-        const respuesta = await axios.post(`http://localhost:3001/`,{usuario1:e.target[0].value,clave:e.target[1].value})
+        const respuesta = await axios.get(`http://localhost:3001/home`)
         if (respuesta.data) {
-            const local = localStorage.setItem('navegacion', 'true');
             dispatch({
                 type:"LOGIN",
                 payload:respuesta.data,
-                log:local
             })  
         }                      
     } catch (error){

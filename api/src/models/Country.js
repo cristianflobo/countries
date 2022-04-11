@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
     area:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
     },
     poblacion:{
       type: DataTypes.INTEGER,
