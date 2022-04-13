@@ -6,8 +6,7 @@ const CardCountry = ({name,continente,img}) => {
   return (
     <div className='cardCounty'>
       <h4>{name}</h4>
-        {/* <a >{name}</a> */}
-        <img
+        <img className='img'
         style={{ Height: 300, width: 300, marginTop: 25 }}
         alt="casa"
         width={"60px"}
@@ -15,7 +14,6 @@ const CardCountry = ({name,continente,img}) => {
         src={img}
       />
       <h4>{continente}</h4>
-        {/* <a >{continente}</a> */}
     </div>
   )
 }

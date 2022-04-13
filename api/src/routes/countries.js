@@ -83,8 +83,13 @@ const Busqueda = async (req,res)=>{
 }
 const searchId = async (req,res)=>{
     console.log("3")
-    const search = await Country.findByPk(req.params.id);
-    res.json(search)
+    const {id}=req.params
+    var validate = Number.isInteger(Number(id))
+    if(validate){
+        console.log(validate)
+        const search = await Country.findByPk(id);
+        res.json(search)
+    }
     res.end()
 }
 const searchName = async (req,res)=>{
