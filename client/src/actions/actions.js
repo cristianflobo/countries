@@ -3,11 +3,13 @@ import axios from  'axios'
 export const inicio = (e) => async (dispatch) => {
     console.log("HOME")
     try {    
-        const respuesta = await axios.get(`http://localhost:3001/home`)
-        if (respuesta.data) {
+        const respuesta = await axios.get(`http://localhost:3001/countries`)
+       // console.log(respuesta.data)
+       if (respuesta.data.length > 0) {
             dispatch({
-                type:"LOGIN",
+                type:"HOME",
                 payload:respuesta.data,
+                load:true
             })  
         }                      
     } catch (error){

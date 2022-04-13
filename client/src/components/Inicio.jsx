@@ -5,7 +5,10 @@ import { inicio } from '../actions/actions'
 import './Inicio.css'
 const Inicio = () => {
   const Dispatch = useDispatch()
-
+  const countries = useSelector((store => store.countries.countrie))
+  
+    console.log("inicio",countries)
+  
   return (
     <div className='inicio' >
       <Link to="/home">

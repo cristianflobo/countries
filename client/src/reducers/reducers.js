@@ -1,7 +1,7 @@
 const initialState ={
-    countrie:[],
-    
-    
+    countrie:[], 
+    load:false  
+  
 }
 
 const HOME = "HOME"
@@ -10,7 +10,8 @@ export default function reducer(state = initialState , action){
         case HOME:
             return {
                 ...state,
-                countrie: action.payload
+                countrie: action.payload,
+                load:action.load
             }
 
         default: 

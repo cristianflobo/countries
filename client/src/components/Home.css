@@ -1,0 +1,39 @@
+.home{
+    display: flex;
+    align-items: baseline;
+    height: 100vh;
+    background-image:url(https://www.importancia.org/wp-content/uploads/global-del/Mapa-Mundi.jpg);
+    background-size:cover ;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-color: blue;
+}
+.input{
+    position: relative;
+    outline: none;
+    margin-top: 1cm;
+    margin-left: 1cm;
+    height: 2%;
+}
+.boton1{
+    border-radius: 7%;
+    height: 25px;
+    border-left: 5cm;
+}
+.boton1{
+    border-radius: 7%;
+    height: 25px;
+    border-left: 5cm;
+}
+.Card {
+    display: inline-block;
+    border:3px solid rgb(65, 91, 204);
+    border-radius:22px;
+    margin-right: 10px;
+    margin-block: 10px;
+}
+.barra{
+    background-color: cadetblue;
+    margin-top: 20px;
+    height: 1cm
+}
