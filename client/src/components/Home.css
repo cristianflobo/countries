@@ -1,30 +1,38 @@
 .home{
+    
     display: block;
+    text-align:center;
+    background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg);
     align-items: baseline;
+    /* margin-left: 10cm;
+    margin-right: 10cm; */
     height: 100vh;
-    background-image:url(https://www.importancia.org/wp-content/uploads/global-del/Mapa-Mundi.jpg);
+    
     background-size:cover ;
     background-repeat:no-repeat;
     background-position: center;
     
 }
-/* .input{
+.input{
     position: relative;
-    outline: none;
+    outline: none;                 
     margin-top: 1cm;
     margin-left: 1cm;
-    height: 2%;
+    height: 34px;
+    font-size: 18px;
 }
 .boton1{
+    font-size: 18px;
     border-radius: 7%;
-    height: 25px;
+    height: 40px;
     border-left: 5cm;
 }
-.boton1{
+.boton2{
+    font-size: 18px;
     border-radius: 7%;
-    height: 25px;
+    height: 40px;
     border-left: 5cm;
-} */
+}
 .Card {
     display: inline-block;
     border:3px solid rgb(65, 91, 204);
@@ -63,10 +71,16 @@
     font-weight: 100px;
 }
 .atras:hover{
-    box-shadow: 0 0 40px 40px #e74c3c inset;
+    box-shadow: 0 0 40px 40px blue inset;
     border-radius: 25%;
 }
 .adelante:hover{
-    box-shadow: 0 0 40px 40px #e74c3c inset;
+    box-shadow: 0 0 40px 40px blue inset;
     border-radius: 25%;
+}
+.map{
+   
+    margin-left: 5cm;
+    margin-right: 5cm;
+    
 }

@@ -4,6 +4,7 @@ import generateStore from './store';
 import {Routes,Route} from "react-router-dom";
 import Inicio from './components/Inicio';
 import Home from './components/Home';
+import InfoCountry from './components/InfoCountry';
 
 
 
@@ -14,7 +15,8 @@ function App() {
     <Provider store={store}>   
       <Routes> 
         <Route path="/" element={<Inicio/>}/>   
-        <Route path="/home" element={<Home/>}/>    
+        <Route path="/home" element={<Home/>}/>  
+        <Route path="/info/:id" element={<InfoCountry/>}/>   
       </Routes> 
     </Provider>
     

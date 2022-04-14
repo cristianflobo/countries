@@ -1,6 +1,7 @@
 const  { Country,tour} = require('../db')
 //const { conn } = require('../db');
 const axios = require('axios')
+const { Op } = require("sequelize");
 let countries = []
 let countries2 = []
 let create = false

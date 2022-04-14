@@ -21,8 +21,7 @@ const Home = () => {
   if (countries.length === 0 ) {
     Dispatch(inicio())
   }
-console.log(countries)
- 
+
   if (page.pagina === 0 && countries.length != 0 ) {
     arrayFor = countries.slice(ini,fin)
     setPage({
@@ -32,19 +31,16 @@ console.log(countries)
     })
   }
 
-
   const adelante = () =>{
     if (count !== 25) {
-    count = count+1
-    ini = fin 
-    arrayFor = countries.slice(ini, fin=(count*10)+9)
-    
-    setPage({ 
-       ...page, 
-    arrayPage:arrayFor,
-    }) 
-
-  }
+      count = count+1
+      ini = fin 
+      arrayFor = countries.slice(ini, fin=(count*10)+9) 
+      setPage({ 
+        ...page, 
+      arrayPage:arrayFor,
+      }) 
+    }
   }
   const atras = () =>{
     if (count != 0) {       
@@ -59,28 +55,35 @@ console.log(countries)
         ...page, 
         arrayPage:arrayFor,
       }) 
-   
     }
   }
   
-
   return (
     <div className='home'>
-      <input className='input' placeholder='Nombre del pais' ></input>
-      <button className='boton1'>buscar</button>
-      <button className='boton2'>buscar</button>
-     
-      <ul>
-       {   
-       (load)? page.arrayPage &&  page.arrayPage.map((item) =>{
+      <div className='barra'>
+        <input className='input' placeholder='Nombre del pais' ></input>
+        <button className='boton1'>buscar</button>
+        <button className='boton2'>buscar</button>
+      </div>
+      <ul className='map'>
+        {   
+        (load)? page.arrayPage &&  page.arrayPage.map((item) =>{
           return (
            <li className='Card' >
-           <CardCountry name={item.name} img ={item.imagen} continente={item.continente}/> 
+           <CardCountry 
+            name={item.name}
+            img ={item.imagen} 
+            continente={item.continente} 
+            id ={item.id} 
+            capital ={item.capital}
+            subregion={item.subregion}
+            area={item.area}
+            poblacion={item.poblacion}
+            />
            </li>  
            ) })
            :<img style={{display:"block",margin:"auto"}} src="https://pa1.narvii.com/6607/6da40c914c7145c591c0777ada8a9a177bb4f9ba_hq.gif"/>           
-        }
-        
+        }    
       </ul> 
       <div className='pagina'>
         <button className='atras'onClick={()=>atras()} >{"<<"}</button>
@@ -94,24 +97,3 @@ console.log(countries)
 export default Home
 
 
-// console.log(page.pagina)
-// if (page.pagina === 0 && countries.length != 0 ) {
-//   arrayFor = countries.slice(page.ini,page.fin)
-//   setPage({
-//     ...page,
-//     pagina:1,
-//     arrayPage:arrayFor
-//   })
-// }
-
-
-// const adelante = () =>{
-//   count = count+1
-// arrayFor = countries.slice(page.ini,page.fin)
-//  setPage({
-//   ...page,
-//   ini:page.fin,
-//   fin:(page.pagina*10)+9,
-//   pagina:page.pagina +1,
-//   arrayPage:arrayFor,
-//  }) 
