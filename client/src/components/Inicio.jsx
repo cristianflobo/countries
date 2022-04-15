@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom'
 import { inicio } from '../actions/actions'
 import './Inicio.css'
 const Inicio = () => {
-  const Dispatch = useDispatch()
-  const countries = useSelector((store => store.countries.countrie))
-  
-    console.log("inicio",countries)
-  
+  const Dispatch = useDispatch() 
   return (
     <div className='inicio' >
       <Link to="/home">
