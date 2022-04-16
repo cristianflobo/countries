@@ -33,7 +33,7 @@ const getPaises = async (req,res,next) => {
         res.end()
     }else{ //VALIDACION PARA QUE NO SE CRE LOS DATOS DE NUEVO EN LA BASE DE DATOS  
         create = true
-        var removeAccents = (str) => {
+            var removeAccents = (str) => {
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
           } 
         try {
@@ -41,16 +41,12 @@ const getPaises = async (req,res,next) => {
             countries2 = await Promise.all( countries.data.map( async (item) =>{
                 //const {ccn3,name:{common}} = item
                 const {subregion,area} = item
-                if (item.ccn3 === undefined) {
-                    var id = 999
-                }else{
                     var id = item.cca3
-                }
                 let name = item.name.common.toLowerCase()
                 let imagen = item.flags[1]
                 let continente = removeAccents(item.region)
                 if (item.capital) {
-                    var capital =removeAccents(item.capital[0])
+                    var capital = removeAccents(item.capital[0])
                 } else {
                     capital = "no capital"
                 }
@@ -65,8 +61,7 @@ const getPaises = async (req,res,next) => {
                     area,
                     poblacion
                 })           
-            }))           
-       // res.end()
+            }))    
         } catch (error) { 
             console.log(error)
         }finally{
@@ -74,7 +69,6 @@ const getPaises = async (req,res,next) => {
             res.end()
         }
     }   
-   // res.end()
 }
 
 const Busqueda = async (req,res)=>{

@@ -31,3 +31,11 @@ export const filtroCont = (countries,value) => async (dispatch) => {
     }                         
    
 }
+export const searchName = (arrayFor) => async (dispatch) => {    
+        dispatch({
+        type:"FILTROCON",
+        payload:arrayFor,
+        })  
+                            
+   
+}

@@ -8,8 +8,8 @@ const initialState ={
 
 const HOME = "HOME"
 const FILTROCON = "FILTROCON"
+const SEARCHNAME = "SEARCHNAME"
 export default function reducer(state = initialState , action){
-    console.log(state,action.payload)
     switch(action.type){
         case HOME:
             return {
@@ -23,7 +23,12 @@ export default function reducer(state = initialState , action){
                 ...state,
                 filContry:action.payload,
                 filtro:action.filtro
-            }      
+            } 
+        case SEARCHNAME:
+        return{
+            ...state,
+            filContry:action.payload,
+        }        
 
         default: 
             return state

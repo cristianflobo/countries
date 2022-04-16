@@ -5,10 +5,11 @@ const CardCountry = ({name,continente,img,id}) => {
 
   return (
     <div className='cardCounty'>
+      
       <h4>{name}</h4>
       <Link to={{pathname:`/info/${id}`}}>
         <img className='img'
-        style={{ Height: 300, width: 300, marginTop: 25 }}
+        style={{ Height: 100, width: 260 }}
         alt="casa"
         width={"60px"}
         height={"160px"}

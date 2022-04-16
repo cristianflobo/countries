@@ -7,7 +7,6 @@
     /* margin-left: 10cm;
     margin-right: 10cm; */
     height: 100vh;
-    
     background-size:cover ;
     background-repeat:no-repeat;
     background-position: center;
@@ -79,14 +78,19 @@
     border-radius: 25%;
 }
 .map{
-   
     margin-left: 5cm;
-    margin-right: 5cm;
-    
+    margin-right: 5cm;  
 }
 .continentes{
     display: block;
     text-align: center;
-    margin-top: 2cm;
     font-size: 18px;
+}
+.asia{
+    color: blueviolet;
+}
+.asia:active{
+   
+        background: burlywood;
+      
 }
