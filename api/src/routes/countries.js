@@ -31,7 +31,7 @@ const getPaises = async (req,res,next) => {
         countries2 = await Country.findAll();
         res.json(countries2)
         res.end()
-    }else{ //VALIDACION PARA QUE NO SE CRE LOS DATOS DE NUEVO EN LA BASE DE DATOS  
+    }else{                       //VALIDACION PARA QUE NO SE CRE LOS DATOS DE NUEVO EN LA BASE DE DATOS  
         create = true
             var removeAccents = (str) => {
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -71,10 +71,27 @@ const getPaises = async (req,res,next) => {
     }   
 }
 
-const Busqueda = async (req,res)=>{
-    console.log("2") 
-    const users = await Country.findAll();
-    console.log(users)
+const tour = async (req,res)=>{
+    const {countries,name,dificultad,duracion,temporada} = req.body
+    try{
+        const createTour= await Tour.create({
+            name,
+            dificultad,
+            duracion,
+            temporada,
+        });
+        const country = await Country.findAll({
+            where: {
+            name: countries,
+            },
+        });          
+        await createTour.setCountries(country);
+            return res.json(createTour);
+    } catch (error) {
+          console.log(error)
+    }      
+   
+
     res.end()
 }
 const searchId = async (req,res)=>{
@@ -97,7 +114,7 @@ const searchName = async (req,res)=>{
 
 module.exports = {
     getPaises,
-    Busqueda,
+    tour,
     searchId,
     searchName,
 }

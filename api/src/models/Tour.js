@@ -6,6 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('tour', {
     id:{
       type: DataTypes.INTEGER,
+      autoIncrement:true,
       primaryKey: true  
     },
     name: {
@@ -23,9 +24,17 @@ module.exports = (sequelize) => {
       
     },
     temporada:{
+     // type: DataTypes.ENUM("Verano", "Otoño", "Invierno ", "Primavera"),
       type: DataTypes.STRING,
+      allowNull: false,
     },
   },{
     timestamps: false,
   });
 };
+
+
+// season: {
+//   type: DataTypes.ENUM("summer", "autumn", "winter", "spring"),
+//   allowNull: false,
+// },
