@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 
 
 export const inicio = (e) => async (dispatch) => {
-
     console.log("HOME")
     try {    
         const respuesta = await axios.get(`http://localhost:3001/countries`)
@@ -36,6 +35,24 @@ export const searchName = (arrayFor) => async (dispatch) => {
         type:"FILTROCON",
         payload:arrayFor,
         })  
-                            
-   
+                             
+}
+export const botones = (e) => async (dispatch) => {   
+    console.log(e.target.value)
+    // dispatch({
+    // type:"FILTROCON",
+    // payload:arrayFor,
+    // })  
+                         
+}
+export const form = (e) => async (dispatch) => {   
+    console.log(e)
+    try {    
+        const  respuesta = await axios.post(`http://localhost:3001/tour`,
+        {name:e.target[0].value,dificultad:e.target[1].value,duracion:e.target[2].value,countries:e.target[3].value,temporada:e.target[4].value})          
+        console.log("res",respuesta.data)
+    } catch (error){
+        console.log(error)
+    }
+                         
 }

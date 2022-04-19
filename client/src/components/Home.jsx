@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { inicio,filtroCont, searchName} from '../actions/actions'
+import { inicio,filtroCont, searchName, botones} from '../actions/actions'
+import Botones from './Botones'
 import CardCountry from './CardCountry'
 import './Home.css'
 let count = 0
@@ -8,20 +9,21 @@ let ini = 0
 let fin = 9
 
 const Home =  () => {
-  let estados = useState() 
+  //let estados = useState() 
   var arrayFor =[]
   const Dispatch = useDispatch()
   const countries = useSelector((store => store.countries.countrie))
-  const load = useSelector((store => store.countries.load))
-  const filContry = useSelector((store => store.countries.filContry))
+  const {load,filContry} = useSelector((store => store.countries))
+  //const filContry = useSelector((store => store.countries.filContry))
+  const [search, setSearch] = useState({letra:""})
   const [page, setPage] = useState({
-    pagina:0,
-    ini:0,
-    fin:9,
+    //pagina:0,
+   // ini:0,
+    //fin:9,
     nueve:false,
     arrayPage:[]
   })
-  const [search, setSearch] = useState({letra:""})
+  
     
   if (countries.length === 0 ) {
     Dispatch(inicio())
@@ -103,22 +105,28 @@ const Home =  () => {
   return (
     <div className='home'>
       <div className='barra'>
+      <button className='boton2' value={"ordenamiento"} onClick={(e)=>Dispatch(botones(e))}>Ordenamiento</button>
+        <button className='boton2' value={"filtro"} onClick={(e)=>Dispatch(botones(e))}>Filtro</button>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>
         <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>buscar</button>
-        <button className='boton2'>buscar</button>
       </div>
+      {
+        (load)? true:false
+      }
+      
+      {
+        
       <div className='continentes'>
         <button className='asia' type='submit' value="Asia"  onClick={(e)=>filtroContienente(e)}>Asia</button>
-        <button type='submit' value="Americas"  onClick={(e)=>filtroContienente(e)} >América</button>
-        <button type='submit' value="Africa"  onClick={(e)=>filtroContienente(e)}>África</button>
-        <button type='submit' value="Antarctic"  onClick={(e)=>filtroContienente(e)}>Antártida</button>
-        <button type='submit' value="Europe"  onClick={(e)=>filtroContienente(e)}>Europa</button>
-        <button type='submit' value="Oceania" name='Oceania' onClick={(e)=>filtroContienente(e)}>Oceanía</button>
+        <button className='americas' type='submit' value="Americas"  onClick={(e)=>filtroContienente(e)} >América</button>
+        <button className='africa' type='submit' value="Africa"  onClick={(e)=>filtroContienente(e)}>África</button>
+        <button classN44ame='antartic' type='submit' value="Antarctic"  onClick={(e)=>filtroContienente(e)}>Antártida</button>
+        <button className='europe' type='submit' value="Europe"  onClick={(e)=>filtroContienente(e)}>Europa</button>
+        <button className='oceania' type='submit' value="Oceania" name='Oceania' onClick={(e)=>filtroContienente(e)}>Oceanía</button>
+        
       </div>
-      <select id="framework">
-        <option value="1">Angular</option>
-        <option value="2">React</option>
-      </select>
+      }
+      <button className='todos' type='submit' value="todos" name='todos' onClick={()=>Dispatch(inicio())}>Todos los Paises</button>
       <ul className='map'>
         {   
         (load)? page.arrayPage &&  page.arrayPage.map((item) =>{
@@ -145,7 +153,7 @@ const Home =  () => {
         <span className='numpage'>{count+1}</span>
         <button className='adelante' onClick={()=>adelante()} >{">>"}</button> 
       </div> 
-      
+    
     </div>
   )
 }

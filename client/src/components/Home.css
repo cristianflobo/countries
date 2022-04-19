@@ -15,8 +15,7 @@
 .input{
     position: relative;
     outline: none;                 
-    margin-top: 1cm;
-    margin-left: 1cm;
+    margin-top: 1cm; 
     height: 34px;
     font-size: 18px;
 }
@@ -87,10 +86,44 @@
     font-size: 18px;
 }
 .asia{
-    color: blueviolet;
+    background: rgb(224, 214, 199);
 }
-.asia:active{
-   
-        background: burlywood;
-      
+    
+.asia:focus{
+    background: blueviolet;
+}
+
+.americas{
+    background: rgb(224, 214, 199);
+}   
+.americas:focus{
+    background: blueviolet;
+}
+
+.africa{
+    background: rgb(224, 214, 199);
+}   
+.africa:focus{
+    background: blueviolet;
+}
+
+.antartic{
+    background: rgb(224, 214, 199);
+}   
+.antartic:focus{
+    background: blueviolet;
+}
+
+.europe{
+    background: rgb(224, 214, 199);
+}   
+.europe:focus{
+    background: blueviolet;
+}
+
+.oceania{
+    background: rgb(224, 214, 199);
+}   
+.oceania:focus{
+    background: blueviolet;
 }

@@ -1,0 +1,41 @@
+.container{
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+    background-size:cover;
+
+}
+.form{
+    
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-size-adjust: 50;
+    font-size:20px ;
+    
+}
+.select{
+    width: 5.5cm;
+}
+.boton{
+    margin-top: 15px;
+    border-radius: 7px;
+    font-size: 20px;
+}
+.textarea{
+    height: 2cm;
+    width: 5.5cm;
+    
+}
+.gay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background-image: url("../Imagenes/activity-1.png")  ;  
+     */
+   
+}
+
+
