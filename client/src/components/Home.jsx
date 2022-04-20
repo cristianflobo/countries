@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { inicio,filtroCont, searchName, botones} from '../actions/actions'
+import { inicio,filtroCont, searchName, botones,ordenAccion} from '../actions/actions'
 import Botones from './Botones'
 import CardCountry from './CardCountry'
 import './Home.css'
@@ -9,24 +9,92 @@ let ini = 0
 let fin = 9
 
 const Home =  () => {
-  //let estados = useState() 
+  console.log("hola")
   var arrayFor =[]
   const Dispatch = useDispatch()
   const countries = useSelector((store => store.countries.countrie))
-  const {load,filContry} = useSelector((store => store.countries))
-  //const filContry = useSelector((store => store.countries.filContry))
+  const {load,filContry,ordenamiento} = useSelector((store => store.countries))
   const [search, setSearch] = useState({letra:""})
   const [page, setPage] = useState({
-    //pagina:0,
-   // ini:0,
-    //fin:9,
+    orde:true,
     nueve:false,
     arrayPage:[]
   })
-  
+  const orden = (e)=>{
+    const {value} = e.target
+   Dispatch(ordenAccion(value))
+   setPage({
+    ...page,
+    orde:true,
+  })
+  }
     
   if (countries.length === 0 ) {
     Dispatch(inicio())
+  }
+  console.log(filContry)
+  
+  if(ordenamiento === "A-Z"){   
+    filContry && filContry.sort((a, b) => {
+        if (a.name > b.name) return 1
+        if (a.name < b.name) return -1
+        return 0
+      })
+   
+  }
+
+  if(ordenamiento === "A-Z" && page.orde === true){
+    filContry && filContry.sort((a, b) => {
+        if (a.name > b.name) return 1
+        if (a.name < b.name) return -1
+        return 0
+      })
+      arrayFor = filContry.slice(ini,fin)
+      setPage({
+        ...page,
+        orde:false,
+        arrayPage:arrayFor
+      })
+    }
+  if(ordenamiento === "Z-A" && page.orde === true){
+    filContry && filContry.sort((a, b) => {
+        if (a.name > b.name) return -1
+        if (a.name < b.name) return 1
+        return 0
+      })
+      arrayFor = filContry.slice(ini,fin)
+      setPage({
+        ...page,
+        orde:false,
+        arrayPage:arrayFor
+      })
+    }
+  if(ordenamiento === "Poblacion+-" && page.orde === true){   
+    filContry && filContry.sort((a, b) => {
+        if (a.poblacion > b.poblacion) return -1
+        if (a.poblacion < b.poblacion) return 1
+        return 0
+      })
+      arrayFor = filContry.slice(ini,fin)
+      setPage({
+        ...page,
+        orde:false,
+        arrayPage:arrayFor
+      })
+  }
+  if(ordenamiento === "Poblacion-+" && page.orde === true){   
+    console.log("Poblacion")
+    filContry && filContry.sort((a, b) => {
+        if (a.poblacion > b.poblacion) return 1
+        if (a.poblacion < b.poblacion) return -1
+        return 0
+      })
+      arrayFor = filContry.slice(ini,fin)
+      setPage({
+        ...page,
+        orde:false,
+        arrayPage:arrayFor
+      })
   }
 
   if (page.nueve === false && countries.length != 0 ) {
@@ -37,10 +105,9 @@ const Home =  () => {
       arrayPage:arrayFor
     })
   }
-  console.log(Math.floor(filContry.length/10)-1)
+
   const adelante = () =>{
     console.log("MAS")
-
     if (count <= (Math.floor(filContry.length/10)-1)) {  //para limitar el paginado
       count = count+1
       ini = fin 
@@ -68,11 +135,12 @@ const Home =  () => {
   }
   
   const filtroContienente = async (e)=>{
-    const {value} = e.target
-    Dispatch(filtroCont(countries,value ))
-    count = 0
-    ini = 0
-    fin = 9
+      console.log(e)
+      const {value} = e.target
+      Dispatch(filtroCont(countries,value ))
+      count = 0
+      ini = 0
+      fin = 9
       arrayFor =countries.slice(ini,fin) 
       setPage({ 
         ...page,
@@ -88,45 +156,44 @@ const Home =  () => {
 
   }
   const onClick = (e)=>{
-    const letra = e.target.value.toLowerCase()
-    const letra2 = "casa carro" 
-    console.log(page.arrayPage)
-    const filtro2 = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
-    arrayFor =filtro2.slice(ini,fin)
-    Dispatch(searchName(filtro2)) 
-      setPage({ 
-        ...page,
-        arrayPage: arrayFor,
+      const letra = e.target.value.toLowerCase()
+      const letra2 = "casa carro" 
+      console.log(page.arrayPage)
+      const filtro2 = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
+      arrayFor =filtro2.slice(ini,fin)
+      Dispatch(searchName(filtro2)) 
+        setPage({ 
+          ...page,
+          arrayPage: arrayFor,
       })
-   // console.log(filtro2)
-
     }
   
   return (
     <div className='home'>
+     
       <div className='barra'>
-      <button className='boton2' value={"ordenamiento"} onClick={(e)=>Dispatch(botones(e))}>Ordenamiento</button>
+        <select type="submit" className='select' name="select"style={{marginTop:0}} onChange={(e)=>  orden(e)} >
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            <option value="Poblacion+-">Poblacion (+ -) </option>
+            <option value="Poblacion-+">Poblacion (- +)</option>
+        </select>
         <button className='boton2' value={"filtro"} onClick={(e)=>Dispatch(botones(e))}>Filtro</button>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>
         <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>buscar</button>
       </div>
-      {
-        (load)? true:false
-      }
       
-      {
-        
+      {   
       <div className='continentes'>
         <button className='asia' type='submit' value="Asia"  onClick={(e)=>filtroContienente(e)}>Asia</button>
         <button className='americas' type='submit' value="Americas"  onClick={(e)=>filtroContienente(e)} >América</button>
         <button className='africa' type='submit' value="Africa"  onClick={(e)=>filtroContienente(e)}>África</button>
-        <button classN44ame='antartic' type='submit' value="Antarctic"  onClick={(e)=>filtroContienente(e)}>Antártida</button>
+        <button className='antartic' type='submit' value="Antarctic"  onClick={(e)=>filtroContienente(e)}>Antártida</button>
         <button className='europe' type='submit' value="Europe"  onClick={(e)=>filtroContienente(e)}>Europa</button>
-        <button className='oceania' type='submit' value="Oceania" name='Oceania' onClick={(e)=>filtroContienente(e)}>Oceanía</button>
-        
+        <button className='oceania' type='submit' value="Oceania" name='Oceania' onClick={(e)=>filtroContienente(e)}>Oceanía</button>   
       </div>
       }
-      <button className='todos' type='submit' value="todos" name='todos' onClick={()=>Dispatch(inicio())}>Todos los Paises</button>
+      <button className='todos' type='button' value="todos" name='todos' onClick={(e)=>filtroContienente(e)}>Todos los Paises</button>
       <ul className='map'>
         {   
         (load)? page.arrayPage &&  page.arrayPage.map((item) =>{

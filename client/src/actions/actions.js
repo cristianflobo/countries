@@ -6,8 +6,7 @@ export const inicio = (e) => async (dispatch) => {
     console.log("HOME")
     try {    
         const respuesta = await axios.get(`http://localhost:3001/countries`)
-       // console.log(respuesta.data)
-       if (respuesta.data.length > 0) {
+        if (respuesta.data.length > 0) {
             dispatch({
                 type:"HOME",
                 payload:respuesta.data,
@@ -18,9 +17,13 @@ export const inicio = (e) => async (dispatch) => {
         console.log(error)
     }    
 }
-export const filtroCont = (countries,value) => async (dispatch) => { 
-    console.log("filtroCont",countries.length)
-    const filtro = countries.filter((item,i)=> item.continente === value)
+export const filtroCont = (countries,value) => (dispatch) => { 
+    console.log("filtro",value)
+    if(value != "todos"){
+        var filtro = countries.filter((item,i)=> item.continente === value)
+    }else{
+        filtro = countries
+    }
     if(filtro){      
         dispatch({
         type:"FILTROCON",
@@ -30,11 +33,11 @@ export const filtroCont = (countries,value) => async (dispatch) => {
     }                         
    
 }
-export const searchName = (arrayFor) => async (dispatch) => {    
-        dispatch({
-        type:"FILTROCON",
-        payload:arrayFor,
-        })  
+export const searchName = (arrayFor) => (dispatch) => {   
+    dispatch({
+    type:"FILTROCON",
+    payload:arrayFor,
+    })  
                              
 }
 export const botones = (e) => async (dispatch) => {   
@@ -54,5 +57,13 @@ export const form = (e) => async (dispatch) => {
     } catch (error){
         console.log(error)
     }
+                         
+}
+export const ordenAccion = (value) => (dispatch) => {    
+    console.log(value)
+    dispatch({
+        type:"ORDENAMIENTO",
+        payload:value,
+        })
                          
 }

@@ -1,4 +1,9 @@
 body {
+  flex: 1;
+  background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg);
+  background-size:cover ;
+    background-repeat:no-repeat;
+    background-position: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

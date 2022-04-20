@@ -5,6 +5,8 @@ const initialState ={
     filtro:"todos",
     botones:"none",
     form:[],
+    ordenamiento:"A-Z",
+    
 }
 
 const HOME = "HOME"
@@ -12,6 +14,7 @@ const FILTROCON = "FILTROCON"
 const SEARCHNAME = "SEARCHNAME"
 const BOTONES = "BOTONES"
 const FORM = "FORM"
+const ORDENAMIENTO = "ORDENAMIENTO"
 
 export default function reducer(state = initialState , action){
     switch(action.type){
@@ -42,7 +45,12 @@ export default function reducer(state = initialState , action){
             return{
                 ...state,
                 form:action.payload,
-            }           
+            } 
+        case ORDENAMIENTO:
+            return{
+                ...state,
+                ordenamiento:action.payload,
+            }            
 
         default: 
             return state

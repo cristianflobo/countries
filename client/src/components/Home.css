@@ -1,15 +1,13 @@
-.home{
-    
+.home{   
+    flex: 1;
     display: block;
     text-align:center;
-    background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg);
+    /* background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg); */
     align-items: baseline;
     /* margin-left: 10cm;
     margin-right: 10cm; */
-    height: 100vh;
-    background-size:cover ;
-    background-repeat:no-repeat;
-    background-position: center;
+    /* height: 100vh; */
+    
     
 }
 .input{
@@ -61,6 +59,8 @@
 }
 .pagina{
   text-align:center;
+  float: initial;
+
 
 }
 .numpage{
@@ -76,10 +76,7 @@
     box-shadow: 0 0 40px 40px blue inset;
     border-radius: 25%;
 }
-.map{
-    margin-left: 5cm;
-    margin-right: 5cm;  
-}
+
 .continentes{
     display: block;
     text-align: center;
@@ -126,4 +123,9 @@
 }   
 .oceania:focus{
     background: blueviolet;
+}
+.imagen{
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }

@@ -6,17 +6,17 @@ const CardCountry = ({name,continente,img,id}) => {
   return (
     <div className='cardCounty'>
       
-      <h4>{name}</h4>
+      <h4 className='name' >{name}</h4>
       <Link to={{pathname:`/info/${id}`}}>
         <img className='img'
-        style={{ Height: 100, width: 260 }}
+        style={{ Height: 200, width: 260 }}
         alt="casa"
-        width={"60px"}
-        height={"160px"}
+          width={"160px"}
+          height={"200px"}
         src={img}
       />
       </Link>
-      <h4>{continente}</h4>
+      <h4 style={{textAlign:"center"}}>{continente}</h4>
     </div>
   )
 }
