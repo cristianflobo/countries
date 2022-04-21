@@ -1,16 +1,16 @@
 const  { Country,Tour} = require('../db')
-//const { conn } = require('../db');
 const axios = require('axios')
 const { Op } = require("sequelize");
+const { json } = require('body-parser');
 let countries = []
 let countries2 = []
 let create = false
+
 const getPaises = async (req,res,next) => { 
     console.log("1")
     const {name} = req.query   
     
-    if (name != undefined) {   //VALIDACION SI TRAE UN DATO POR QUERY QUE SE HAGA LA BUSQUEDA  
-                                 
+    if (name != undefined) {   //VALIDACION SI TRAE UN DATO POR QUERY QUE SE HAGA LA BUSQUEDA                           
         const busca = await Country.findAll({
                where: { name: { [Op.like]: `%${name}%`}},
                include: Tour,   
@@ -24,18 +24,19 @@ const getPaises = async (req,res,next) => {
        
       return res.end();       
     }
-    let prueba = await Country.findAll({ attributes: ['id'],limit: 1  })
-    let validate = prueba.map(item =>{return id = item.dataValues.id})     //mapeo para obtener id y saber si la tabla tiene country creados o no 
-    //console.log("ty",prueba)
-    if (create) {
-        countries2 = await Country.findAll();
-        res.json(countries2)
+    //let prueba = await Country.findAll({ attributes: ['id']  })
+    let todos = await Country.findAll({
+        include: Tour,
+    })
+    let validate = JSON.stringify(todos).length
+    if (validate !== 2 ) {
+        res.json(todos)
         res.end()
     }else{                       //VALIDACION PARA QUE NO SE CRE LOS DATOS DE NUEVO EN LA BASE DE DATOS  
-        create = true
-            var removeAccents = (str) => {
+
+        var removeAccents = (str) => {
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-          } 
+        } 
         try {
             countries = await axios.get("https://restcountries.com/v3/all")
             countries2 = await Promise.all( countries.data.map( async (item) =>{
@@ -51,7 +52,7 @@ const getPaises = async (req,res,next) => {
                     capital = "no capital"
                 }
                 let poblacion = item.population
-                let newCountry = await Country.create({
+                return await Country.create({
                     id,
                     name,
                     imagen,
@@ -65,7 +66,8 @@ const getPaises = async (req,res,next) => {
         } catch (error) { 
             console.log(error)
         }finally{
-            create = true
+           // create = true
+           res.json(countries2)
             res.end()
         }
     }   
@@ -80,13 +82,18 @@ const tour = async (req,res)=>{
             duracion,
             temporada,
         });
-        const country = await Country.findAll({
-            where: {
-            name: countries,
-            },
-        });          
-        await createTour.setCountries(country);
-            return res.json(createTour);
+        const arraCountry = countries.split(" ")
+           var prueba = arraCountry.map( async(item) =>{
+                console.log(item)
+                const country = await Country.findAll({
+                    where: {
+                    name: item,
+                    },
+                });          
+                await createTour.setCountries(country);
+            })
+            res.send(createTour)
+
     } catch (error) {
           console.log(error)
     }      
@@ -120,30 +127,7 @@ module.exports = {
 }
 
 
-// let data = await Country.findAll({
-//     where: { name: { [Op.like]: `%${name}%` } },
-//     include: Activity,
-//   });
 
 
-// exports.create = async (req, res) => {
-//     try {
-//       const { countries, name, difficulty, duration, season } = req.body;
-//       const createdactivity = await Activity.create({
-//         name,
-//         difficulty,
-//         duration,
-//         season,
-//       });
-//       const countriesfounded = await Country.findAll({
-//         where: {
-//           name: countries,
-//         },
-//       });
-//       await createdactivity.setCountries(countriesfounded);
-//       return res.json(createdactivity);
-//     } catch (error) {
-//       return res.status(500).json({ error: error.message });
-//     }
-//   };
+
   

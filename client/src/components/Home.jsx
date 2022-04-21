@@ -22,8 +22,8 @@ const Home =  () => {
   })
   const orden = (e)=>{
     const {value} = e.target
-   Dispatch(ordenAccion(value))
-   setPage({
+    Dispatch(ordenAccion(value))
+    setPage({
     ...page,
     orde:true,
   })
@@ -40,9 +40,7 @@ const Home =  () => {
         if (a.name < b.name) return -1
         return 0
       })
-   
   }
-
   if(ordenamiento === "A-Z" && page.orde === true){
     filContry && filContry.sort((a, b) => {
         if (a.name > b.name) return 1
@@ -153,24 +151,20 @@ const Home =  () => {
       ...search,
       letra:e.target.value.toLowerCase()
     })
-
   }
   const onClick = (e)=>{
-      const letra = e.target.value.toLowerCase()
-      const letra2 = "casa carro" 
+      const letra = e.target.value
       console.log(page.arrayPage)
-      const filtro2 = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
-      arrayFor =filtro2.slice(ini,fin)
-      Dispatch(searchName(filtro2)) 
+      const filtro = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
+      arrayFor =filtro.slice(ini,fin)
+      Dispatch(searchName(filtro)) 
         setPage({ 
           ...page,
           arrayPage: arrayFor,
       })
-    }
-  
+  }
   return (
     <div className='home'>
-     
       <div className='barra'>
         <select type="submit" className='select' name="select"style={{marginTop:0}} onChange={(e)=>  orden(e)} >
             <option value="A-Z">A-Z</option>
@@ -182,7 +176,6 @@ const Home =  () => {
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>
         <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>buscar</button>
       </div>
-      
       {   
       <div className='continentes'>
         <button className='asia' type='submit' value="Asia"  onClick={(e)=>filtroContienente(e)}>Asia</button>

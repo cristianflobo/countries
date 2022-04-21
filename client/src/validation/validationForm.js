@@ -1,13 +1,27 @@
 
 const validationForm = (e) =>{
-    console.log(e)
-    var inputName =e.target.value;
-    var regex = /(\d+)/g;
-    if (inputName.match(regex)!= null) {
+    const {value}=e.target
+    const {name} = e.target
+    if (name==="name") {
+        var regex = /(\d+)/g;
+        if (value.match(regex)!= null) {
         alert ("solo debe contener numeros")
-        e.target.value = inputName.substring(0, inputName.length - 1)
+        e.target.value = value.substring(0, value.length - 1)
     }
-    console.log(inputName.match(regex)); 
+    }
+    if (name==="dificultad") {
+        if (value>5) {
+            e.target.value = 5
+        }
+        if (value<0) {
+            e.target.value = 0
+        }  
+    }
+    if (name==="textarea") {
+       // console.log(value.split(" "))
+        
+    }
+    console.log(value.match(regex)); 
       
 }
 

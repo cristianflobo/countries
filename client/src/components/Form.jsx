@@ -30,6 +30,7 @@ const Form = () => {
         <input style={{borderRadius:10}} type="number" name="Duracion" className='input' placeholder='Duracion' ></input>
             <label style={{marginBottom:10, marginTop:20,color:"gold"}}>Paises incluidos</label>
         <textarea 
+            name='textarea'
             className='textarea' 
             placeholder='Escribir los paises que va agregar a la actividad turistica separados por espacios'
             autoComplete='on'
