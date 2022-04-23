@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { inicio,filtroCont, searchName, botones,ordenAccion} from '../actions/actions'
 import Botones from './Botones'
 import CardCountry from './CardCountry'
+import Filtro from './Filtro'
 import './Home.css'
 let count = 0
 let ini = 0
 let fin = 9
 
+let arrayPru = []
 const Home =  () => {
-  console.log("hola")
   var arrayFor =[]
   const Dispatch = useDispatch()
   const countries = useSelector((store => store.countries.countrie))
+  
   const {load,filContry,ordenamiento} = useSelector((store => store.countries))
   const [search, setSearch] = useState({letra:""})
   const [page, setPage] = useState({
@@ -24,15 +27,20 @@ const Home =  () => {
     const {value} = e.target
     Dispatch(ordenAccion(value))
     setPage({
-    ...page,
-    orde:true,
-  })
+      ...page,
+      orde:true,
+    })
   }
-    
+  
+  countries.find(item=> {                                               //extraer nombres de las actividad turistica
+    if(item.tours.length >0){
+      arrayPru = item.tours
+    }
+  })
+  
   if (countries.length === 0 ) {
     Dispatch(inicio())
   }
-  console.log(filContry)
   
   if(ordenamiento === "A-Z"){   
     filContry && filContry.sort((a, b) => {
@@ -133,13 +141,13 @@ const Home =  () => {
   }
   
   const filtroContienente = async (e)=>{
-      console.log(e)
+     
       const {value} = e.target
       Dispatch(filtroCont(countries,value ))
       count = 0
       ini = 0
       fin = 9
-      arrayFor =countries.slice(ini,fin) 
+      arrayFor = countries.slice(ini,fin) 
       setPage({ 
         ...page,
         nueve:false,
@@ -156,7 +164,7 @@ const Home =  () => {
       const letra = e.target.value
       console.log(page.arrayPage)
       const filtro = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
-      arrayFor =filtro.slice(ini,fin)
+      arrayFor = filtro.slice(ini,fin)
       Dispatch(searchName(filtro)) 
         setPage({ 
           ...page,
@@ -165,14 +173,25 @@ const Home =  () => {
   }
   return (
     <div className='home'>
+      <Link to="/form">
+      <button>Crear Tour</button>
+      </Link>
       <div className='barra'>
-        <select type="submit" className='select' name="select"style={{marginTop:0}} onChange={(e)=>  orden(e)} >
+        <span>Ordenar: </span>
+        <select type="submit"  name="select" onChange={(e)=> orden(e)} >
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
             <option value="Poblacion+-">Poblacion (+ -) </option>
             <option value="Poblacion-+">Poblacion (- +)</option>
         </select>
-        <button className='boton2' value={"filtro"} onClick={(e)=>Dispatch(botones(e))}>Filtro</button>
+        
+        <span>Filtrar por tour: </span>
+        <select style={{width:100}} >
+          <option value="A-Z"></option>
+          {
+            arrayPru.map(item => <option value="A-Z">{item.name}</option>)
+          }
+        </select>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>
         <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>buscar</button>
       </div>
@@ -201,6 +220,7 @@ const Home =  () => {
             subregion={item.subregion}
             area={item.area}
             poblacion={item.poblacion}
+            actividad={(item.tours[0]===undefined)?"No tiene actividad":item.tours[0].name}
             />
            </li>  
            ) })

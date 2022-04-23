@@ -1,9 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { form } from '../actions/actions'
+import { form, inicio } from '../actions/actions'
 import validationForm from '../validation/validationForm'
 import './Form.css'
 import foto from "../Imagenes/activity-1.png"
+import { Link } from 'react-router-dom'
 
 const Form = () => {
     const Dispatch = useDispatch()
@@ -47,6 +48,9 @@ const Form = () => {
             type="submit">
             Crear
        </button>
+       <Link to="/home">
+       <button onClick={()=>Dispatch(inicio())}>Volver</button>
+       </Link>
     
     </form>
     </div> 

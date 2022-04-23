@@ -52,7 +52,7 @@ export const form = (e) => async (dispatch) => {
     console.log(e)
     try {    
         const  respuesta = await axios.post(`http://localhost:3001/tour`,
-        {name:e.target[0].value,dificultad:e.target[1].value,duracion:e.target[2].value,countries:e.target[3].value,temporada:e.target[4].value})          
+        {name:e.target[0].value, dificultad:e.target[1].value, duracion:e.target[2].value, countries:e.target[3].value, temporada:e.target[4].value})          
         console.log("res",respuesta.data)
     } catch (error){
         console.log(error)

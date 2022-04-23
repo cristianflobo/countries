@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { inicio } from '../actions/actions'
 import './InfoCountry.css'
-
+let pru = ""
 const InfoCountry = () => {
     var find = []
+
     const Dispatch = useDispatch()
     const info =useSelector((store =>store.countries.countrie))
     const load =useSelector((store =>store.countries.load))
@@ -17,6 +18,14 @@ const InfoCountry = () => {
     find = info.find(item => item.id == id )
 
     }
+    useEffect(() => {
+        if (find.tours === undefined) {
+            pru = "no hay actividad"
+          }
+    }, [])
+    
+    console.log(find)
+    
     return (
     <div className='infoCountry'>  
         <img src={find.imagen}></img>
@@ -28,8 +37,15 @@ const InfoCountry = () => {
         <span>Subregion: {find.subregion}</span>
         <span>Area: {find.area} km<sup>2</sup></span>
         <span>Poblacion: {find.poblacion}</span>
-        <span>ACTUVIDAD </span>
+        <span>Actividad:</span>
+            {
+                (!find.tours)? <span>Nooo hay actividad </span>:
+                find.tours.map(item=> <li>{item.name}</li> )
+            }
         </div>
+        <Link to="/home">
+        <button >Volver</button>
+        </Link>
     </div>
     )
     
