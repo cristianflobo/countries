@@ -1,13 +1,24 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { form, inicio } from '../actions/actions'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { form, inicio, nameTourFu } from '../actions/actions'
 import validationForm from '../validation/validationForm'
 import './Form.css'
 import foto from "../Imagenes/activity-1.png"
 import { Link } from 'react-router-dom'
-
+let nameMach = []
 const Form = () => {
     const Dispatch = useDispatch()
+    const countries = useSelector((store => store.countries.countrie))
+    const [machName, setmachName] = useState({uni:10006})
+    
+    useEffect(() => {                     
+        if (countries.length === 0 ) {
+          Dispatch(inicio())
+        }
+      }, [Dispatch])
+    nameMach = countries.map(item =>item.name)
+    //console.log(nameMach)
+
     const prueba = (e) =>{
         e.preventDefault();
         Dispatch(form(e))
@@ -17,11 +28,31 @@ const Form = () => {
         console.log(e.target[3].value)
         console.log(e.target[4].value)
     }
+    const validate = (e)=>{
+      const validateMach = validationForm(e,nameMach)
+      const aja2 = validateMach.includes(false)
+      if (!aja2) {
+        setmachName({
+            ...machName,
+            uni:10004  
+        })
+      }else{
+        setmachName({
+            ...machName,
+            uni:10006  
+        })
+      }
+      console.log(aja2, " ",machName.uni)
+    }
+    const onClick = ()=>{
+        Dispatch(inicio())
+        Dispatch(nameTourFu())
+    }
   return (
     <div className='container'>
         <img src={foto} className="gay" alt="" />
         <div className='gay'> 
-        <form className='form' onSubmit={(e)=> prueba(e)} onChange={(e)=> validationForm(e)} >
+        <form className='form' onSubmit={(e)=> prueba(e)} onChange={(e)=>validate(e)} >
         <h2>Crea tu actividad turistica</h2>
             <label style={{marginBottom:-30, marginTop:50,color:"gold"}}>Nombre</label>
         <input style={{borderRadius:10}} type="text" name="name" className='input' placeholder='Nombre' ></input>
@@ -36,6 +67,10 @@ const Form = () => {
             placeholder='Escribir los paises que va agregar a la actividad turistica separados por espacios'
             autoComplete='on'
             ></textarea>
+            {
+                (machName.uni === 10006)?<span style={{color:"yellow"}}>{String.fromCodePoint(10006)}</span>:<span style={{color:"yellow"}}>{String.fromCodePoint(10004)}</span>
+            }
+            {/* <span style={{color:"yellow"}}>{String.fromCodePoint(machName)}</span> */}
             <label style={{marginBottom:10, marginTop:20,color:"gold"}}>Temporada</label>
         <select type="submit" className='select' name="select"style={{marginTop:0}} >
             <option value="Verano">Verano</option>
@@ -44,12 +79,12 @@ const Form = () => {
             <option value="Primavera">Primavera</option>
         </select>
         <button
-        className='boton'
+            className='boton'
             type="submit">
             Crear
        </button>
        <Link to="/home">
-       <button onClick={()=>Dispatch(inicio())}>Volver</button>
+       <button onClick={()=>onClick()}>Volver</button>
        </Link>
     
     </form>

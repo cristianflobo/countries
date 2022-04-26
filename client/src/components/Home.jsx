@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { inicio,filtroCont, searchName, botones,ordenAccion} from '../actions/actions'
-import Botones from './Botones'
+import { inicio,filtroCont, searchName,ordenAccion,nameTourFu} from '../actions/actions'
 import CardCountry from './CardCountry'
 import Filtro from './Filtro'
 import './Home.css'
 let count = 0
 let ini = 0
 let fin = 9
-
-let arrayPru = []
+let arraySelect = []
+let arraySelect2 = []
 const Home =  () => {
   var arrayFor =[]
   const Dispatch = useDispatch()
   const countries = useSelector((store => store.countries.countrie))
-  
-  const {load,filContry,ordenamiento} = useSelector((store => store.countries))
+  const {load,filContry,ordenamiento,nameTour} = useSelector((store => store.countries))
   const [search, setSearch] = useState({letra:""})
   const [page, setPage] = useState({
     orde:true,
@@ -31,16 +29,14 @@ const Home =  () => {
       orde:true,
     })
   }
-  
-  countries.find(item=> {                                               //extraer nombres de las actividad turistica
-    if(item.tours.length >0){
-      arrayPru = item.tours
-    }
-  })
-  
-  if (countries.length === 0 ) {
-    Dispatch(inicio())
-  }
+  //-----------------------------------------------------------
+    useEffect(() => {                     
+      if (countries.length === 0 ) {
+        Dispatch(inicio())
+        Dispatch(nameTourFu())
+      }
+    }, [Dispatch])
+   //----------------------------------------------------------- 
   
   if(ordenamiento === "A-Z"){   
     filContry && filContry.sort((a, b) => {
@@ -189,7 +185,7 @@ const Home =  () => {
         <select style={{width:100}} >
           <option value="A-Z"></option>
           {
-            arrayPru.map(item => <option value="A-Z">{item.name}</option>)
+           nameTour.map(item => <option value="A-Z">{item.name}</option>)
           }
         </select>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>

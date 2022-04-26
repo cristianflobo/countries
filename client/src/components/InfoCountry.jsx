@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { inicio } from '../actions/actions'
 import './InfoCountry.css'
-let pru = ""
+
 const InfoCountry = () => {
     var find = []
 
@@ -15,14 +15,8 @@ const InfoCountry = () => {
     }
     const id = useParams().id
     if(load){
-    find = info.find(item => item.id == id )
-
+        find = info.find(item => item.id == id )
     }
-    useEffect(() => {
-        if (find.tours === undefined) {
-            pru = "no hay actividad"
-          }
-    }, [])
     
     console.log(find)
     

@@ -73,7 +73,7 @@ const getPaises = async (req,res,next) => {
     }   
 }
 
-const tour = async (req,res)=>{
+const createTour = async (req,res)=>{
     const {countries,name,dificultad,duracion,temporada} = req.body
     try{
         const createTour= await Tour.create({
@@ -112,18 +112,21 @@ const searchId = async (req,res)=>{
     }
     res.end()
 }
-const searchName = async (req,res)=>{
+const nametour = async (req,res)=>{
     console.log("4")
-     //console.log(req.query) 
-    // res.end()
+    let nametour = await Tour.findAll({ attributes: ['name']  })
+    console.log(nametour)
+    res.json(nametour)
+    res.end()
   }
 
 
 module.exports = {
     getPaises,
-    tour,
+    createTour,
     searchId,
-    searchName,
+
+    nametour
 }
 
 

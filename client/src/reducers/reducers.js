@@ -6,6 +6,7 @@ const initialState ={
     botones:"none",
     form:[],
     ordenamiento:"A-Z",
+    nameTour:[]
     
 }
 
@@ -15,6 +16,7 @@ const SEARCHNAME = "SEARCHNAME"
 const BOTONES = "BOTONES"
 const FORM = "FORM"
 const ORDENAMIENTO = "ORDENAMIENTO"
+const NAMETOUR = "NAMETOUR"
 
 export default function reducer(state = initialState , action){
     switch(action.type){
@@ -50,7 +52,12 @@ export default function reducer(state = initialState , action){
             return{
                 ...state,
                 ordenamiento:action.payload,
-            }            
+            } 
+        case NAMETOUR:
+            return{
+                ...state,
+                nameTour:action.payload,
+            }           
 
         default: 
             return state

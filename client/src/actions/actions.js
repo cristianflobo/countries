@@ -40,16 +40,18 @@ export const searchName = (arrayFor) => (dispatch) => {
     })  
                              
 }
-export const botones = (e) => async (dispatch) => {   
-    console.log(e.target.value)
-    // dispatch({
-    // type:"FILTROCON",
-    // payload:arrayFor,
-    // })  
+export const nameTourFu = () => async (dispatch) => {  
+    console.log("entra")
+    const  respuesta = await axios.get(`http://localhost:3001/nametour`)
+    console.log(respuesta.data)
+    dispatch({
+    type:"NAMETOUR",
+    payload:respuesta.data,
+    })  
                          
 }
 export const form = (e) => async (dispatch) => {   
-    console.log(e)
+    console.log(e.target[3].value)
     try {    
         const  respuesta = await axios.post(`http://localhost:3001/tour`,
         {name:e.target[0].value, dificultad:e.target[1].value, duracion:e.target[2].value, countries:e.target[3].value, temporada:e.target[4].value})          

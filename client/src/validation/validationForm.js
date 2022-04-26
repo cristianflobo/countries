@@ -1,5 +1,5 @@
 
-const validationForm = (e) =>{
+const validationForm = (e,nameMach) =>{
     const {value}=e.target
     const {name} = e.target
     if (name==="name") {
@@ -18,8 +18,14 @@ const validationForm = (e) =>{
         }  
     }
     if (name==="textarea") {
-       // console.log(value.split(" "))
-        
+        const arrayCountry = value.split(" ")
+        const ensa = arrayCountry.map(itemap=>{
+           return nameMach.includes(itemap)
+        })
+            
+       // console.log(ensa)
+      // console.log(value.split(" "))
+        return ensa
     }
     console.log(value.match(regex)); 
       
