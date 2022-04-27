@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { inicio,filtroCont, searchName,ordenAccion,nameTourFu} from '../actions/actions'
+import { inicio,filtroCont, searchName,ordenAccion,nameTourFu, filtroTour} from '../actions/actions'
 import CardCountry from './CardCountry'
 import Filtro from './Filtro'
 import './Home.css'
 let count = 0
 let ini = 0
 let fin = 9
-let arraySelect = []
-let arraySelect2 = []
 const Home =  () => {
   var arrayFor =[]
   const Dispatch = useDispatch()
@@ -136,8 +134,31 @@ const Home =  () => {
     }
   }
   
-  const filtroContienente = async (e)=>{
-     
+  const mapTour = (e)=>{
+    let aja = []
+   // console.log(e.target.value)
+    countries.map(itemap=> {
+      if (itemap.tours.length > 0) {
+        const ret = itemap.tours.filter(item =>item.name === e.target.value)
+        if (ret.length > 0 ) {
+          aja.push(itemap)
+        }      
+      }
+    })
+    Dispatch(filtroTour(aja))
+    count = 0
+    ini = 0
+    fin = 9
+    arrayFor = aja.slice(ini,fin) 
+    setPage({ 
+      ...page,
+      nueve:true,
+      arrayPage: arrayFor,
+    }) 
+  }
+console.log(page.arrayPage)
+
+  const filtroContienente = async (e)=>{   
       const {value} = e.target
       Dispatch(filtroCont(countries,value ))
       count = 0
@@ -167,6 +188,7 @@ const Home =  () => {
           arrayPage: arrayFor,
       })
   }
+ 
   return (
     <div className='home'>
       <Link to="/form">
@@ -182,10 +204,10 @@ const Home =  () => {
         </select>
         
         <span>Filtrar por tour: </span>
-        <select style={{width:100}} >
-          <option value="A-Z"></option>
+        <select type="submit"  name="select2" style={{width:100}} onChange={(e)=>mapTour(e) } >
+          <option ></option>
           {
-           nameTour.map(item => <option value="A-Z">{item.name}</option>)
+           nameTour.map(item => <option value={item.name}>{item.name}</option>)
           }
         </select>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>

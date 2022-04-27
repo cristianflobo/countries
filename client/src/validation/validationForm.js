@@ -1,6 +1,7 @@
 
 const validationForm = (e,nameMach) =>{
     const {value}=e.target
+    console.log(value)
     const {name} = e.target
     if (name==="name") {
         var regex = /(\d+)/g;
@@ -21,14 +22,11 @@ const validationForm = (e,nameMach) =>{
         const arrayCountry = value.split(" ")
         const ensa = arrayCountry.map(itemap=>{
            return nameMach.includes(itemap)
-        })
-            
-       // console.log(ensa)
-      // console.log(value.split(" "))
+        })      
         return ensa
     }
-    console.log(value.match(regex)); 
-      
+    //console.log(value.match(regex)); 
+      return ["ok"]
 }
 
 export default validationForm

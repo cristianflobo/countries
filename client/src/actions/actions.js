@@ -1,5 +1,5 @@
 import axios from  'axios'
-import { useSelector } from 'react-redux'
+
 
 
 export const inicio = (e) => async (dispatch) => {
@@ -43,7 +43,6 @@ export const searchName = (arrayFor) => (dispatch) => {
 export const nameTourFu = () => async (dispatch) => {  
     console.log("entra")
     const  respuesta = await axios.get(`http://localhost:3001/nametour`)
-    console.log(respuesta.data)
     dispatch({
     type:"NAMETOUR",
     payload:respuesta.data,
@@ -62,10 +61,16 @@ export const form = (e) => async (dispatch) => {
                          
 }
 export const ordenAccion = (value) => (dispatch) => {    
-    console.log(value)
+    //console.log(value)
     dispatch({
         type:"ORDENAMIENTO",
         payload:value,
-        })
-                         
+        })                       
+}
+export const filtroTour = (value) => (dispatch) => {    
+    console.log(value)
+    dispatch({
+        type:"FILTROTOUR",
+        payload:value,
+        })                       
 }

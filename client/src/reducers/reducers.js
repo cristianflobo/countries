@@ -17,7 +17,7 @@ const BOTONES = "BOTONES"
 const FORM = "FORM"
 const ORDENAMIENTO = "ORDENAMIENTO"
 const NAMETOUR = "NAMETOUR"
-
+const FILTROTOUR = "FILTROTOUR"
 export default function reducer(state = initialState , action){
     switch(action.type){
         case HOME:
@@ -57,6 +57,11 @@ export default function reducer(state = initialState , action){
             return{
                 ...state,
                 nameTour:action.payload,
+            }
+        case FILTROTOUR:
+            return{
+                ...state,
+                filContry:action.payload,
             }           
 
         default: 

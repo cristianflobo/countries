@@ -29,7 +29,7 @@ const Form = () => {
         console.log(e.target[4].value)
     }
     const validate = (e)=>{
-      const validateMach = validationForm(e,nameMach)
+      const validateMach =  validationForm(e,nameMach)
       const aja2 = validateMach.includes(false)
       if (!aja2) {
         setmachName({
@@ -42,7 +42,8 @@ const Form = () => {
             uni:10006  
         })
       }
-      console.log(aja2, " ",machName.uni)
+      console.log(aja2)
+     
     }
     const onClick = ()=>{
         Dispatch(inicio())
