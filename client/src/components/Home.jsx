@@ -136,27 +136,36 @@ const Home =  () => {
   
   const mapTour = (e)=>{
     let aja = []
-   // console.log(e.target.value)
-    countries.map(itemap=> {
-      if (itemap.tours.length > 0) {
-        const ret = itemap.tours.filter(item =>item.name === e.target.value)
-        if (ret.length > 0 ) {
-          aja.push(itemap)
-        }      
-      }
-    })
-    Dispatch(filtroTour(aja))
-    count = 0
-    ini = 0
-    fin = 9
-    arrayFor = aja.slice(ini,fin) 
+    if (e.target.value !== "2510") {
+      countries.map(itemap=> {
+        if (itemap.tours.length > 0) {
+          const ret = itemap.tours.filter(item =>item.name === e.target.value)
+          if (ret.length > 0 ) {
+            aja.push(itemap)
+          }      
+        }
+      })
+      Dispatch(filtroTour(aja))
+      count = 0
+      ini = 0
+      fin = 9
+      arrayFor = aja.slice(ini,fin) 
+    }else{
+      console.log("2510")
+      count = 0
+      ini = 0
+      fin = 9
+      arrayFor = countries.slice(ini,fin) 
+      const value = "todos"
+      Dispatch(filtroCont(countries,value))
+    }
+    
     setPage({ 
       ...page,
       nueve:true,
       arrayPage: arrayFor,
     }) 
   }
-console.log(page.arrayPage)
 
   const filtroContienente = async (e)=>{   
       const {value} = e.target
@@ -205,7 +214,7 @@ console.log(page.arrayPage)
         
         <span>Filtrar por tour: </span>
         <select type="submit"  name="select2" style={{width:100}} onChange={(e)=>mapTour(e) } >
-          <option ></option>
+          <option value="2510" ></option>
           {
            nameTour.map(item => <option value={item.name}>{item.name}</option>)
           }
@@ -244,8 +253,7 @@ console.log(page.arrayPage)
            ) })
            :<img style={{display:"block",margin:"auto"}} src="https://pa1.narvii.com/6607/6da40c914c7145c591c0777ada8a9a177bb4f9ba_hq.gif"/>           
         }    
-      </ul> 
-      
+      </ul>     
       <div className='pagina'>
         <button className='atras'onClick={()=>atras()} >{"<<"}</button>
         <span className='numpage'>{count+1}</span>

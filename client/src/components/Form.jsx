@@ -4,12 +4,16 @@ import { form, inicio, nameTourFu } from '../actions/actions'
 import validationForm from '../validation/validationForm'
 import './Form.css'
 import foto from "../Imagenes/activity-1.png"
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 let nameMach = []
 const Form = () => {
+  const navegacion = useNavigate()
     const Dispatch = useDispatch()
     const countries = useSelector((store => store.countries.countrie))
-    const [machName, setmachName] = useState({uni:10006})
+    const [machName, setmachName] = useState({
+      uni:10006,
+      submit:false
+    })
     
     useEffect(() => {                     
         if (countries.length === 0 ) {
@@ -17,16 +21,27 @@ const Form = () => {
         }
       }, [Dispatch])
     nameMach = countries.map(item =>item.name)
-    //console.log(nameMach)
 
     const prueba = (e) =>{
         e.preventDefault();
-        Dispatch(form(e))
-        console.log(e.target[0].value)
-        console.log(e.target[1].value)
-        console.log(e.target[2].value)
-        console.log(e.target[3].value)
-        console.log(e.target[4].value)
+        for (let i = 0; i < 4; i++) {
+          if (e.target[i].value==="") {
+            return alert ("Completar todos los campos")
+          }  
+        }
+        if (machName.uni === 10004) {
+          if (e.nativeEvent.submitter.value === "volver") {    //boton presionado volver o crear
+            setmachName({
+              ...machName,
+              submit:true
+            })
+          }
+          alert ("Tour creado")
+          Dispatch(form(e))
+        }else{
+          alert ("Ecriba los paises correctamente, separados por espacios y si es el nombre del pais lleva varias palabras escriba _ ente ellas Ej:costa_rica")
+        }
+        
     }
     const validate = (e)=>{
       const validateMach =  validationForm(e,nameMach)
@@ -41,14 +56,23 @@ const Form = () => {
             ...machName,
             uni:10006  
         })
-      }
-      console.log(aja2)
-     
+      } 
     }
     const onClick = ()=>{
+      Dispatch(inicio())
+      Dispatch(nameTourFu())
+      navegacion(-1)
+                  
+    }
+
+    useEffect(() => {
+      if (machName.submit) {
         Dispatch(inicio())
         Dispatch(nameTourFu())
-    }
+        navegacion(-1)
+      }
+    }, [machName])
+
   return (
     <div className='container'>
         <img src={foto} className="gay" alt="" />
@@ -79,15 +103,24 @@ const Form = () => {
             <option value="Invierno">Invierno</option>
             <option value="Primavera">Primavera</option>
         </select>
+        <div>
+          <button
+            value="volver"
+            type="submit"
+            onClick={()=>onClick()}
+            style={{fontSize:"15px"}}
+            className='botonVolver'>
+              Crear y Volver
+          </button>
         <button
-            className='boton'
-            type="submit">
-            Crear
-       </button>
-       <Link to="/home">
-       <button onClick={()=>onClick()}>Volver</button>
-       </Link>
-    
+        value="crear"
+          style={{fontSize:"15px"}}
+          className='botonCrear'
+          type="submit">
+          Crear y Crear Nuevo
+        </button> 
+       </div> 
+       <button type='button' onClick={()=>onClick()}>Volver</button> 
     </form>
     </div> 
     

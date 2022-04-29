@@ -1,7 +1,6 @@
 
 const validationForm = (e,nameMach) =>{
     const {value}=e.target
-    console.log(value)
     const {name} = e.target
     if (name==="name") {
         var regex = /(\d+)/g;

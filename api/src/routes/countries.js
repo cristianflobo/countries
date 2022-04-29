@@ -15,7 +15,7 @@ const getPaises = async (req,res,next) => {
                where: { name: { [Op.like]: `%${name}%`}},
                include: Tour,   
        })
-       console.log("name",name,busca)   
+       
        if (busca[0] == undefined) {
            res.send("Pais no encontrado")
        }else{
@@ -84,7 +84,6 @@ const createTour = async (req,res)=>{
         });
         const arraCountry = countries.split(" ")
            var prueba = arraCountry.map( async(item) =>{
-                console.log(item)
                 const country = await Country.findAll({
                     where: {
                     name: item,
@@ -104,18 +103,17 @@ const createTour = async (req,res)=>{
 const searchId = async (req,res)=>{
     console.log("3")
     const {id}=req.params
-    var validate = Number.isInteger(Number(id))
-    if(validate){
-        console.log(validate)
+    // var validate = Number.isInteger(Number(id))
+    // if(validate){
+      //  console.log(validate)
         const search = await Country.findByPk(id);
         res.json(search)
-    }
+   // }
     res.end()
 }
 const nametour = async (req,res)=>{
     console.log("4")
     let nametour = await Tour.findAll({ attributes: ['name']  })
-    console.log(nametour)
     res.json(nametour)
     res.end()
   }
