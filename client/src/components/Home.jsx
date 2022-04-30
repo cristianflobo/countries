@@ -205,7 +205,7 @@ const Home =  () => {
       </Link>
       <div className='barra'>
         <span>Ordenar: </span>
-        <select type="submit"  name="select" onChange={(e)=> orden(e)} >
+        <select className='selectOrden' type="submit"  name="select" onChange={(e)=> orden(e)} >
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
             <option value="Poblacion+-">Poblacion (+ -) </option>
@@ -213,8 +213,8 @@ const Home =  () => {
         </select>
         
         <span>Filtrar por tour: </span>
-        <select type="submit"  name="select2" style={{width:100}} onChange={(e)=>mapTour(e) } >
-          <option value="2510" ></option>
+        <select className='selectTour' type="submit"  name="select2"  onChange={(e)=>mapTour(e) } >
+          <option value="2510" >Todos</option>
           {
            nameTour.map(item => <option value={item.name}>{item.name}</option>)
           }

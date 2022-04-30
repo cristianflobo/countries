@@ -19,7 +19,10 @@ const validationForm = (e,nameMach) =>{
     }
     if (name==="textarea") {
         const arrayCountry = value.split(" ")
-        const ensa = arrayCountry.map(itemap=>{
+        //console.log(arrayCountry)
+        const arrayCountryMap = arrayCountry.map((item)=> item.replace("_"," "))
+        //console.log(arrayCountryMap)
+        const ensa = arrayCountryMap.map(itemap=>{
            return nameMach.includes(itemap)
         })      
         return ensa

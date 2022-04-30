@@ -10,18 +10,55 @@
     
     
 }
+.map{
+    display: block;
+    
+}
+.selectOrden{
+    border: gray;
+    outline: gray;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 5px 55px 6px 10px;
+    font-size: 14px; 
+}
+.selectOrden:hover {
+    background-color:blue; /* Green */
+    color: white;
+}
+.selectTour{
+    border: gray;
+    outline: gray;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 7px 55px 7px 10px;
+    font-size: 14px; 
+}
+.selectTour:hover {
+    background-color:blue; /* Green */
+    color: white;
+}
 .input{
     position: relative;
     outline: none;                 
     margin-top: 1cm; 
-    height: 34px;
-    font-size: 18px;
+    font-size: 14px; 
+    padding: 5px 55px 5px 10px;
 }
 .boton1{
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 7%;
-    height: 40px;
-    border-left: 5cm;
+    
+    padding: 4px 15px 5px 10px;
+    
 }
 .boton2{
     font-size: 18px;
@@ -39,7 +76,7 @@
 }
 .barra{
     display: block;
-    
+  
 }
 .atras{
     border: 0;
@@ -58,6 +95,7 @@
     background-color: transparent;
 }
 .pagina{
+    position: inherit;
   text-align:center;
   float: initial;
 
@@ -83,46 +121,141 @@
     font-size: 18px;
 }
 .asia{
-    background: rgb(224, 214, 199);
+   
+    background-color: #4CAF50; /* Green */
+    border: 100px  ;
+    border-bottom-left-radius: 10%;
+    border-top-left-radius: 10%;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
     
 .asia:focus{
     background: blueviolet;
 }
+.asia:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
 
 .americas{
-    background: rgb(224, 214, 199);
+    background-color: #4CAF50; /* Green */
+    border: none;
+    
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }   
 .americas:focus{
     background: blueviolet;
 }
+.americas:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
 
 .africa{
-    background: rgb(224, 214, 199);
+    background-color: #4CAF50; /* Green */
+    border: none;
+    
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }   
 .africa:focus{
     background: blueviolet;
 }
+.africa:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
 
 .antartic{
-    background: rgb(224, 214, 199);
+    background-color: #4CAF50; /* Green */
+    border: none;
+   
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }   
 .antartic:focus{
     background: blueviolet;
 }
+.antartic:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
 
 .europe{
-    background: rgb(224, 214, 199);
+    background-color: #4CAF50; /* Green */
+    border: none;
+   
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }   
 .europe:focus{
     background: blueviolet;
 }
+.europe:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
 
 .oceania{
-    background: rgb(224, 214, 199);
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }   
 .oceania:focus{
     background: blueviolet;
+}
+.oceania:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+.todos {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.todos:focus{
+    background: blueviolet;
+}
+.todos:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
 }
 .imagen{
     position: absolute;

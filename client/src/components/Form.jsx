@@ -67,6 +67,7 @@ const Form = () => {
 
     useEffect(() => {
       if (machName.submit) {
+        console.log(machName.submit)
         Dispatch(inicio())
         Dispatch(nameTourFu())
         navegacion(-1)
@@ -107,7 +108,6 @@ const Form = () => {
           <button
             value="volver"
             type="submit"
-            onClick={()=>onClick()}
             style={{fontSize:"15px"}}
             className='botonVolver'>
               Crear y Volver
