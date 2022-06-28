@@ -16,7 +16,8 @@ const country = {
     capital:"cordoba",
     subregion:"sur america",
     area: 5000,
-    poblacion:10000
+    poblacion:10000,
+    tours:[{name:"comer"}]
   }
 
 describe('Country routes', () => {

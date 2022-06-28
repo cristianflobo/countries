@@ -4,7 +4,7 @@ import { form, inicio, nameTourFu } from '../actions/actions'
 import validationForm from '../validation/validationForm'
 import './Form.css'
 import foto from "../Imagenes/activity-1.png"
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 let nameMach = []
 const Form = () => {
   const navegacion = useNavigate()
@@ -80,12 +80,12 @@ const Form = () => {
         <div className='gay'> 
         <form className='form' onSubmit={(e)=> prueba(e)} onChange={(e)=>validate(e)} >
         <h2>Crea tu actividad turistica</h2>
-            <label style={{marginBottom:-30, marginTop:50,color:"gold"}}>Nombre</label>
-        <input style={{borderRadius:10}} type="text" name="name" className='input' placeholder='Nombre' ></input>
-            <label style={{marginBottom:-30, marginTop:20,color:"gold"}}>Dificultad</label>
-        <input style={{borderRadius:10}} type="number" name="dificultad" className='input' placeholder='Dificultad'  ></input>
-            <label style={{marginBottom:-30, marginTop:20,color:"gold"}}>Duracion</label>
-        <input style={{borderRadius:10}} type="number" name="Duracion" className='input' placeholder='Duracion' ></input>
+            <label style={{color:"gold"}}>Nombre</label>
+        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="text" name="name" placeholder='Nombre' ></input>
+            <label style={{color:"gold"}}>Dificultad</label>
+        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="number" name="dificultad"placeholder='Dificultad'  ></input>
+            <label style={{color:"gold"}}>Duracion</label>
+        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="number" name="Duracion"  placeholder='Duracion' ></input>
             <label style={{marginBottom:10, marginTop:20,color:"gold"}}>Paises incluidos</label>
         <textarea 
             name='textarea'
@@ -105,13 +105,13 @@ const Form = () => {
             <option value="Primavera">Primavera</option>
         </select>
         <div>
-          <button
+          {/* <button
             value="volver"
             type="submit"
             style={{fontSize:"15px"}}
             className='botonVolver'>
               Crear y Volver
-          </button>
+          </button> */}
         <button
         value="crear"
           style={{fontSize:"15px"}}

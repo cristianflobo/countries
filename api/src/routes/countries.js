@@ -3,7 +3,6 @@ const axios = require('axios')
 const { Op } = require("sequelize");
 const { json } = require('body-parser');
 let countries = []
-let countries2 = []
 let create = false
 
 const getPaises = async (req,res,next) => { 
@@ -39,7 +38,7 @@ const getPaises = async (req,res,next) => {
         } 
         try {
             countries = await axios.get("https://restcountries.com/v3/all")
-            countries2 = await Promise.all( countries.data.map( async (item) =>{
+             await Promise.all( countries.data.map( async (item) =>{
                 //const {ccn3,name:{common}} = item
                 const {subregion,area} = item
                     var id = item.cca3
@@ -67,7 +66,10 @@ const getPaises = async (req,res,next) => {
             console.log(error)
         }finally{
            // create = true
-           res.json(countries2)
+           let countrieFind = await Country.findAll({
+            include: Tour,
+            })
+           res.json(countrieFind)
             res.end()
         }
     }   
@@ -83,7 +85,14 @@ const createTour = async (req,res)=>{
             temporada,
         });
         const arraCountry = countries.split(" ")
-           var prueba = arraCountry.map( async(item) =>{
+        var  arrayFinal = arraCountry.map(e=> {
+            if (e.includes("_")) {
+              return e.replace('_',' ')
+            } 
+            return e    
+        })
+       console.log(arrayFinal)
+           var prueba = arrayFinal.map( async(item) =>{
                 const country = await Country.findAll({
                     where: {
                     name: item,

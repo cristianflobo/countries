@@ -27,6 +27,7 @@ const Home =  () => {
       orde:true,
     })
   }
+
   //-----------------------------------------------------------
     useEffect(() => {                     
       if (countries.length === 0 ) {
@@ -135,6 +136,7 @@ const Home =  () => {
   }
   
   const mapTour = (e)=>{
+    console.log(e.target.value)
     let aja = []
     if (e.target.value !== "2510") {
       countries.map(itemap=> {
@@ -151,7 +153,6 @@ const Home =  () => {
       fin = 9
       arrayFor = aja.slice(ini,fin) 
     }else{
-      console.log("2510")
       count = 0
       ini = 0
       fin = 9
@@ -188,8 +189,8 @@ const Home =  () => {
   }
   const onClick = (e)=>{
       const letra = e.target.value
-      console.log(page.arrayPage)
-      const filtro = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true)
+      console.log("acc",letra)
+      const filtro = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true )
       arrayFor = filtro.slice(ini,fin)
       Dispatch(searchName(filtro)) 
         setPage({ 
@@ -197,12 +198,11 @@ const Home =  () => {
           arrayPage: arrayFor,
       })
   }
- 
+
   return (
     <div className='home'>
-      <Link to="/form">
-      <button>Crear Tour</button>
-      </Link>
+      <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
+      
       <div className='barra'>
         <span>Ordenar: </span>
         <select className='selectOrden' type="submit"  name="select" onChange={(e)=> orden(e)} >
@@ -220,7 +220,10 @@ const Home =  () => {
           }
         </select>
         <input  className='input' placeholder='Nombre del pais' onChange={(e)=>handleOnchange(e)} ></input>
-        <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>buscar</button>
+        <button type='submit' onClick={(e)=>onClick(e)} value={search.letra} className='boton1'>Buscar</button>
+        <Link to="/form">
+          <button className='animated flash'>Crear Tour</button>
+        </Link>
       </div>
       {   
       <div className='continentes'>
@@ -236,6 +239,10 @@ const Home =  () => {
       <ul className='map'>
         {   
         (load)? page.arrayPage &&  page.arrayPage.map((item) =>{
+     
+          if (item.tours.length === 0) {
+            item.tours.push({name:"No tiene actividad"})
+          }
           return (
            <li className='Card' >
            <CardCountry 
@@ -247,7 +254,7 @@ const Home =  () => {
             subregion={item.subregion}
             area={item.area}
             poblacion={item.poblacion}
-            actividad={(item.tours[0]===undefined)?"No tiene actividad":item.tours[0].name}
+            actividad={(item.tours.length == 1)?item.tours[0].name:item.tours[0].name}
             />
            </li>  
            ) })

@@ -3,8 +3,8 @@ const initialState ={
     filContry:[], 
     load:false ,
     filtro:"todos",
-    botones:"none",
-    form:[],
+    //botones:"none",
+   // form:[],
     ordenamiento:"A-Z",
     nameTour:[]
     
@@ -13,8 +13,8 @@ const initialState ={
 const HOME = "HOME"
 const FILTROCON = "FILTROCON"
 const SEARCHNAME = "SEARCHNAME"
-const BOTONES = "BOTONES"
-const FORM = "FORM"
+//const BOTONES = "BOTONES"
+//const FORM = "FORM"
 const ORDENAMIENTO = "ORDENAMIENTO"
 const NAMETOUR = "NAMETOUR"
 const FILTROTOUR = "FILTROTOUR"
@@ -38,16 +38,16 @@ export default function reducer(state = initialState , action){
                 ...state,
                 filContry:action.payload,
             }    
-        case BOTONES:
-            return{
-                ...state,
-                botones:action.payload,
-            }
-        case FORM:
-            return{
-                ...state,
-                form:action.payload,
-            } 
+        // case BOTONES:
+        //     return{
+        //         ...state,
+        //         botones:action.payload,
+        //     }
+        // case FORM:
+        //     return{
+        //         ...state,
+        //         form:action.payload,
+        //     } 
         case ORDENAMIENTO:
             return{
                 ...state,

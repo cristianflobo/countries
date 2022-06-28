@@ -15,13 +15,13 @@ const InfoCountry = () => {
     }
     const id = useParams().id
     if(load){
+        
         find = info.find(item => item.id == id )
+
     }
-    
-    console.log(find)
-    
     return (
     <div className='infoCountry'>  
+    <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
         <img src={find.imagen}></img>
         <div className='info'>
         <span>Nombre: {find.name}</span>

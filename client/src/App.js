@@ -15,6 +15,7 @@ function App() {
   return (
     <Provider store={store}>   
       <Routes> 
+        
         <Route path="/" element={<Inicio/>}/>   
         <Route path="/home" element={<Home/>}/>
         <Route path="/form" element={<Form/>}/>  
