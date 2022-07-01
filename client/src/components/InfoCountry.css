@@ -1,5 +1,5 @@
 .infoCountry{
-    display: block;
+    display: inline-block;
     text-align:center;
     margin: auto;
     font-size: 30px;
@@ -10,4 +10,8 @@
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
   
+}
+.bandera{
+  /* display: flex;
+  justify-content: flex-end; */
 }

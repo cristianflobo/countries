@@ -201,7 +201,7 @@ const Home =  () => {
 
   return (
     <div className='home'>
-      <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
+      {/* <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" /> */}
       
       <div className='barra'>
         <span>Ordenar: </span>

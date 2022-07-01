@@ -21,8 +21,10 @@ const InfoCountry = () => {
     }
     return (
     <div className='infoCountry'>  
-    <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
+        <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
+        <div className='bandera'>
         <img src={find.imagen}></img>
+        </div>
         <div className='info'>
         <span>Nombre: {find.name}</span>
         <span>Codigo pais: {find.id}</span>
