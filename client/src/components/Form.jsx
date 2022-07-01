@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { form, inicio, nameTourFu } from '../actions/actions'
 import validationForm from '../validation/validationForm'
 import './Form.css'
-import foto from "../Imagenes/activity-1.png"
+import foto from "../Imagenes/tour.jpg"
 import { useNavigate } from 'react-router-dom'
 let nameMach = []
 const Form = () => {
@@ -80,13 +80,13 @@ const Form = () => {
         <div className='gay'> 
         <form className='form' onSubmit={(e)=> prueba(e)} onChange={(e)=>validate(e)} >
         <h2>Crea tu actividad turistica</h2>
-            <label style={{color:"gold"}}>Nombre</label>
-        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="text" name="name" placeholder='Nombre' ></input>
-            <label style={{color:"gold"}}>Dificultad</label>
-        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="number" name="dificultad"placeholder='Dificultad'  ></input>
-            <label style={{color:"gold"}}>Duracion</label>
-        <input style={{borderRadius:10, border:'1',borderColor:"black",height:'20px'}} type="number" name="Duracion"  placeholder='Duracion' ></input>
-            <label style={{marginBottom:10, marginTop:20,color:"gold"}}>Paises incluidos</label>
+            <label >Nombre</label>
+        <input className='inputForm'  type="text" name="name" placeholder='Nombre' ></input>
+            <label >Dificultad</label>
+        <input className='inputForm' type="number" name="dificultad"placeholder='Dificultad'  ></input>
+            <label >Duracion</label>
+        <input className='inputForm' type="number" name="Duracion"  placeholder='Duracion' ></input>
+            <label >Paises incluidos</label>
         <textarea 
             name='textarea'
             className='textarea' 
@@ -94,10 +94,10 @@ const Form = () => {
             autoComplete='on'
             ></textarea>
             {
-                (machName.uni === 10006)?<span style={{color:"yellow"}}>{String.fromCodePoint(10006)}</span>:<span style={{color:"yellow"}}>{String.fromCodePoint(10004)}</span>
+                (machName.uni === 10006)?<span style={{color:"red"}}>{String.fromCodePoint(10006)}</span>:<span style={{color:"yellow"}}>{String.fromCodePoint(10004)}</span>
             }
             {/* <span style={{color:"yellow"}}>{String.fromCodePoint(machName)}</span> */}
-            <label style={{marginBottom:10, marginTop:20,color:"gold"}}>Temporada</label>
+            <label >Temporada</label>
         <select type="submit" className='select' name="select"style={{marginTop:0}} >
             <option value="Verano">Verano</option>
             <option value="Otono">Otoño</option>
@@ -120,7 +120,7 @@ const Form = () => {
           Crear y Crear Nuevo
         </button> 
        </div> 
-       <button type='button' onClick={()=>onClick()}>Volver</button> 
+       <button className='botonCrear' style={{fontSize:"15px"}} type='button' onClick={()=>onClick()}>Volver</button> 
     </form>
     </div> 
     

@@ -25,6 +25,7 @@
     
 }
 .selectOrden{
+   
     border-radius: 10px;
     border: 1px gray;
     outline:none;
@@ -39,7 +40,6 @@
 }
 .selectOrden:hover {
     background-color: rgba(255, 255, 255, 0.5);
-    
 }
 .selectTour{
     border-radius: 10px;
