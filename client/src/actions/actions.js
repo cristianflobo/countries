@@ -5,7 +5,8 @@ import axios from  'axios'
 export const inicio = (e) => async (dispatch) => {
     console.log("HOME")
     try {    
-        const respuesta = await axios.get(`http://localhost:3001/countries`)
+        //const respuesta = await axios.get(`http://localhost:3001/countries`)
+        const respuesta = await axios.get(`/countries`)
         if (respuesta.data.length > 0) {
             dispatch({
                 type:"HOME",
@@ -42,7 +43,8 @@ export const searchName = (arrayFor) => (dispatch) => {
 }
 export const nameTourFu = () => async (dispatch) => {  
     console.log("entra")
-    const  respuesta = await axios.get(`http://localhost:3001/nametour`)
+    //const  respuesta = await axios.get(`http://localhost:3001/nametour`)
+    const  respuesta = await axios.get(`/nametour`)
     dispatch({
     type:"NAMETOUR",
     payload:respuesta.data,
@@ -52,7 +54,8 @@ export const nameTourFu = () => async (dispatch) => {
 export const form = (e) => async (dispatch) => {   
     console.log(e.target[3].value)
     try {    
-        const  respuesta = await axios.post(`http://localhost:3001/tour`,
+        //const  respuesta = await axios.post(`http://localhost:3001/tour`,
+        const  respuesta = await axios.post(`/tour`,
         {name:e.target[0].value, dificultad:e.target[1].value, duracion:e.target[2].value, countries:e.target[3].value, temporada:e.target[4].value})          
         console.log("res",respuesta.data)
     } catch (error){
