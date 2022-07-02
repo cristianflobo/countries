@@ -1,0 +1,341 @@
+.home{   
+    flex: 1;
+    display: block;
+    text-align:center;
+    /* background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg); */
+    align-items: baseline;
+    /* margin-left: 10cm;
+    margin-right: 10cm; */
+    /* height: 100vh; */
+    
+    background-color:rgb(112, 128, 216);
+}
+
+.imgPri{
+    
+    display: flex;
+    z-index: -1;
+    position: absolute;
+    min-width: 100vh;
+    width: 100%;
+    left: 0;
+    
+}
+
+.map{
+    display: block;
+    
+}
+.selectOrden{
+   
+    border-radius: 10px;
+    border: 1px gray;
+    outline:none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 5px 55px 6px 10px;
+    font-size: 14px; 
+  
+}
+.selectOrden:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.selectTour{
+    border-radius: 10px;
+    border: 1px gray;
+    outline:none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 7px 55px 7px 10px;
+    font-size: 14px; 
+}
+.selectTour:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.input{
+    position: relative;
+    border-color: blue;;
+    border-left: 1px;
+    border-right: 1px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    outline: none;                 
+    margin-top: 1cm; 
+    font-size: 14px; 
+    height: 25px;
+    border: none;
+    /* padding: 5px 55px 5px 10px; */
+}
+.boton1{
+    
+    height: 27px;
+    font-size: 16px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 0.7;
+    border: blue;
+    /* padding: 4px 15px 5px 10px;
+     */
+}
+.boton1:hover{
+    box-shadow: 0 0 40px 40px blue inset;
+    border-radius: 25%;
+}
+.boton2{
+    font-size: 18px;
+    border-radius: 7%;
+    height: 40px;
+    border-left: 5cm;
+}
+.btnTour{
+    margin-left: 0.5cm;
+    height: 31px;
+    font-size: 16px;
+    border-radius:10px ;
+    opacity: 0.7;
+}
+.btnTour:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+.Card {
+    
+    display: inline-block;
+    /* border:3px solid rgba(255, 255, 255, 0.5); */
+    border-radius:22px;
+    margin-right: 10px;
+    margin-block: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    
+    
+}
+.Card:hover {
+    box-shadow: 1px -1px 13px 4px rgba(0, 0, 0, 0.93);
+  }
+  
+.barra{
+    display: block;
+  
+}
+.atras{
+    border: 0;
+    margin-right: 10px;
+    font-size: 50px;
+    font-weight: 100px;
+    color: black;
+    background-color: transparent;
+}
+.adelante{
+    border: 0;
+    margin-left: 10px;
+    font-size: 50px;
+    color: black;
+    background-color: transparent;
+}
+.pagina{
+    position: inherit;
+    text-align:center;
+    float: initial;
+}
+.numpage{
+    order: 0;
+    font-size: 55px;
+    font-weight: 100px;
+}
+.atras:hover{
+    box-shadow: 0 0 40px 40px blue inset;
+    border-radius: 25%;
+}
+.adelante:hover{
+    box-shadow: 0 0 40px 40px blue inset;
+    border-radius: 25%;
+}
+
+.continentes{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+.asia{
+   
+    background-color: #4CAF50; /* Green */
+    border: 100px  ;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+    
+.asia:focus{
+    background: blueviolet;
+}
+.asia:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
+.americas{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.americas:focus{
+    background: blueviolet;
+}
+.americas:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
+.africa{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.africa:focus{
+    background: blueviolet;
+}
+.africa:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
+
+.antartic{
+    background-color: #4CAF50; /* Green */
+    border: none;
+   
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.antartic:focus{
+    background: blueviolet;
+}
+.antartic:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
+.europe{
+    background-color: #4CAF50; /* Green */
+    border: none;
+   
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.europe:focus{
+    background: blueviolet;
+}
+.europe:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+
+.oceania{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.oceania:focus{
+    background: blueviolet;
+}
+.oceania:hover {
+    background-color:blueviolet; /* Green */
+    color: white;
+}
+.todos {
+    background-color: rgba(240, 11, 11, 0.15);
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}   
+.todos:focus{
+    background: blueviolet;
+}
+.todos:hover {
+    background-color: rgba(69, 35, 190, 0.5);
+    color: white;
+}
+.imagen{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.animated {
+    height: 27px;
+    font-size: 16px;
+    margin-left: 0.7cm;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.7;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   }
+   @-webkit-keyframes flash {
+    0%, 50%, 100% {
+    opacity: 1;
+    }
+   25%, 75% {
+    opacity: 0;
+    }
+   }
+   @keyframes flash {
+    0%, 50%, 100% {
+    opacity: 1;
+    }
+   25%, 75% {
+    opacity: 0;
+    }
+   }
+   .flash {
+    -webkit-animation-name: flash;
+    animation-name: flash;
+   }

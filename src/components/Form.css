@@ -1,0 +1,77 @@
+.container{
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+    background-size:cover;
+
+}
+.form{
+    
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-size-adjust: 50;
+    font-size:20px ;
+    border-color: white;
+}
+.select{
+    width: 5.5cm;
+    background-color:rgb(169, 188, 250) ; 
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-width: 1px;
+    color: #919191;
+    font-size: 16px;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    width: 250px;
+}
+.botonCrear{
+    height: 30px;
+    margin-top: 20px;
+    color: #8d1e1e;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color:rgb(151, 170, 234) ; 
+}
+.botonCrear:hover {
+    background-color: rgba(180, 174, 246, 0.8);
+}
+.textarea{
+    height: 2cm;
+    width: 6.5cm;
+    background-color:rgb(169, 188, 250) ; 
+    
+}
+.gay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background-image: url("../Imagenes/activity-1.png")  ;  
+     */
+   
+}
+.inputForm{
+    border-radius:10px ;
+    border: 1;
+    border-color: transparent;
+    height: 30px;
+    width: 250px;
+    background-color:rgb(169, 188, 250); 
+    
+}
+
