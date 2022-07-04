@@ -21,27 +21,32 @@ const InfoCountry = () => {
     }
     return (
     <div className='infoCountry'>  
-        <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" />
-        <div className='bandera'>
-        <img src={find.imagen}></img>
+        {/* <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" /> */}
+        <div className='card'>
+            <div className='bandera'>
+                <img className='imgbandera' src={find.imagen}></img>
+            </div>
+            <div className='info'>
+                <span>Nombre: {find.name}</span>
+                <span>Codigo pais: {find.id}</span>
+                <span>Continente: {find.continente}</span>
+                <span>Capital: {find.capital}</span>
+                <span>Subregion: {find.subregion}</span>
+                <span>Area: {find.area} km<sup>2</sup></span>
+                <span>Poblacion: {find.poblacion}</span>
+                <span>Actividad:</span>
+                    {
+                        (!find.tours)? <span>Nooo hay actividad </span>:
+                        find.tours.map(item=> <li>{item.name}</li> )
+                    }
+            </div>
+            
+            <Link to="/home">
+                <button className='volver'>Volver</button>
+            </Link>
+
         </div>
-        <div className='info'>
-        <span>Nombre: {find.name}</span>
-        <span>Codigo pais: {find.id}</span>
-        <span>Continente: {find.continente}</span>
-        <span>Capital: {find.capital}</span>
-        <span>Subregion: {find.subregion}</span>
-        <span>Area: {find.area} km<sup>2</sup></span>
-        <span>Poblacion: {find.poblacion}</span>
-        <span>Actividad:</span>
-            {
-                (!find.tours)? <span>Nooo hay actividad </span>:
-                find.tours.map(item=> <li>{item.name}</li> )
-            }
-        </div>
-        <Link to="/home">
-        <button >Volver</button>
-        </Link>
+        
     </div>
     )
     
