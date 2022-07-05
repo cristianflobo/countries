@@ -245,17 +245,17 @@ const Home =  () => {
           }
           return (
            <li className='Card' >
-           <CardCountry 
-            name={item.name}
-            img ={item.imagen} 
-            continente={item.continente} 
-            id ={item.id} 
-            capital ={item.capital}
-            subregion={item.subregion}
-            area={item.area}
-            poblacion={item.poblacion}
-            actividad={(item.tours.length == 1)?item.tours[0].name:item.tours[0].name}
-            />
+            <CardCountry 
+              name={item.name}
+              img ={item.imagen} 
+              continente={item.continente} 
+              id ={item.id} 
+              capital ={item.capital}
+              subregion={item.subregion}
+              area={item.area}
+              poblacion={item.poblacion}
+              actividad={(item.tours.length == 1)?item.tours[0].name:item.tours[0].name}
+              />
            </li>  
            ) })
            :<img style={{display:"block",margin:"auto"}} src="https://pa1.narvii.com/6607/6da40c914c7145c591c0777ada8a9a177bb4f9ba_hq.gif"/>           
