@@ -6,9 +6,9 @@
     align-items: baseline;
     /* margin-left: 10cm;
     margin-right: 10cm; */
-    /* height: 100vh; */
+    height: 131vh;
     
-    background-color:rgb(112, 128, 216);
+    background-color:rgb(112, 128, 216,0.5);
 }
 
 .imgPri{
@@ -21,7 +21,6 @@
     left: 0;
     
 }
-
 .map{
     display: block;
     
@@ -338,4 +337,11 @@
    .flash {
     -webkit-animation-name: flash;
     animation-name: flash;
+   }
+
+   @media (max-width:600px) {
+    .home{
+        height: 530vh;
+       
+    }
    }
