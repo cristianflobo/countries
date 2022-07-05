@@ -41,7 +41,8 @@
     width: 250px;
 }
 .botonCrear{
-    height: 30px;
+    border: none;
+    height: 35px;
     margin-top: 20px;
     color: #8d1e1e;
     border-radius: 8px;

@@ -204,6 +204,7 @@ const Home =  () => {
       {/* <img src="https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg" className='imgPri' alt="" /> */}
       
       <div className='barra'>
+        
         <span>Ordenar: </span>
         <select className='selectOrden' type="submit"  name="select" onChange={(e)=> orden(e)} >
             <option value="A-Z">A-Z</option>
@@ -211,8 +212,7 @@ const Home =  () => {
             <option value="Poblacion+-">Poblacion (+ -) </option>
             <option value="Poblacion-+">Poblacion (- +)</option>
         </select>
-        
-        <span>Filtrar por tour: </span>
+        <span>Tour: </span>
         <select className='selectTour' type="submit"  name="select2"  onChange={(e)=>mapTour(e) } >
           <option value="2510" >Todos</option>
           {

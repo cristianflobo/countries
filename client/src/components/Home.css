@@ -83,8 +83,8 @@
      */
 }
 .boton1:hover{
-    box-shadow: 0 0 40px 40px blue inset;
-    border-radius: 25%;
+    box-shadow: 0 0 40px 40px rgb(162, 162, 219) inset;
+   
 }
 .boton2{
     font-size: 18px;

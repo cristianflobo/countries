@@ -27,25 +27,27 @@ const InfoCountry = () => {
                 <img className='imgbandera' src={find.imagen}></img>
             </div>
             <div className='info'>
-                <span>Nombre: {find.name}</span>
-                <span>Codigo pais: {find.id}</span>
-                <span>Continente: {find.continente}</span>
-                <span>Capital: {find.capital}</span>
-                <span>Subregion: {find.subregion}</span>
-                <span>Area: {find.area} km<sup>2</sup></span>
-                <span>Poblacion: {find.poblacion}</span>
+                <span style={{borderBottom:"1px solid"}}>Nombre: {find.name}</span>
+                <span style={{borderBottom:"1px solid"}}>Codigo pais: {find.id}</span>
+                <span style={{borderBottom:"1px solid"}}>Continente: {find.continente}</span>
+                <span style={{borderBottom:"1px solid"}}>Capital: {find.capital}</span>
+                <span style={{borderBottom:"1px solid"}}>Subregion: {find.subregion}</span>
+                <span style={{borderBottom:"1px solid"}}>Area: {find.area} km<sup>2</sup></span>
+                <span style={{borderBottom:"1px solid"}}>Poblacion: {find.poblacion}</span>
                 <span>Actividad:</span>
                     {
                         (!find.tours)? <span>Nooo hay actividad </span>:
                         find.tours.map(item=> <li>{item.name}</li> )
                     }
             </div>
-            
-            <Link to="/home">
-                <button className='volver'>Volver</button>
-            </Link>
-
+           
+           
         </div>
+         <div className='divolver'>
+                <Link to="/home">
+                    <button className='volver'>Volver</button>
+                </Link>
+            </div>                
         
     </div>
     )
