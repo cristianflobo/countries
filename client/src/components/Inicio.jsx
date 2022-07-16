@@ -7,9 +7,7 @@ const Inicio = () => {
   const Dispatch = useDispatch()
 
   useEffect(() => {
-    console.log("first")
-    
-    
+
   }, [])
   const onClick = ()=>{
       Dispatch(inicio())

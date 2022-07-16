@@ -84,7 +84,7 @@ const Home =  () => {
       })
   }
   if(ordenamiento === "Poblacion-+" && page.orde === true){   
-    console.log("Poblacion")
+   
     filContry && filContry.sort((a, b) => {
         if (a.poblacion > b.poblacion) return 1
         if (a.poblacion < b.poblacion) return -1
@@ -108,7 +108,7 @@ const Home =  () => {
   }
 
   const adelante = () =>{
-    console.log("MAS")
+    
     if (count <= (Math.floor(filContry.length/10)-1)) {  //para limitar el paginado
       count = count+1
       ini = fin 
@@ -136,7 +136,7 @@ const Home =  () => {
   }
   
   const mapTour = (e)=>{
-    console.log(e.target.value)
+   
     let aja = []
     if (e.target.value !== "2510") {
       countries.map(itemap=> {
@@ -189,7 +189,7 @@ const Home =  () => {
   }
   const onClick = (e)=>{
       const letra = e.target.value
-      console.log("acc",letra)
+      
       const filtro = filContry.filter((item,i)=> item.name.startsWith(`${letra}`) === true )
       arrayFor = filtro.slice(ini,fin)
       Dispatch(searchName(filtro)) 

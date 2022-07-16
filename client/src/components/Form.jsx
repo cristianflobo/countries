@@ -90,7 +90,7 @@ const Form = () => {
         <textarea 
             name='textarea'
             className='textarea' 
-            placeholder='Escribir los paises que va agregar a la actividad turistica separados por espacios'
+            placeholder='Escribir los paises que va agregar a la actividad turistica separados por espacios, si el nombre lleva varias letras poner un _ entre palabras'
             autoComplete='on'
             ></textarea>
             {

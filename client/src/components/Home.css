@@ -4,29 +4,24 @@
     text-align:center;
     /* background-image:url(https://img.freepik.com/vector-gratis/mapa-mundial-nodos-unidos-lineas-mapa-estructura-poligonal_110633-321.jpg); */
     align-items: baseline;
-    /* margin-left: 10cm;
-    margin-right: 10cm; */
-    height: 131vh;
-    
+    height: fit-content;
+    min-height: 100vh;
     background-color:rgb(112, 128, 216,0.5);
 }
 
 .imgPri{
-    
     display: flex;
     z-index: -1;
     position: absolute;
     min-width: 100vh;
     width: 100%;
     left: 0;
-    
 }
 .map{
     display: block;
     
 }
 .selectOrden{
-   
     border-radius: 10px;
     border: 1px gray;
     outline:none;
@@ -84,6 +79,7 @@
 }
 .boton1:hover{
     box-shadow: 0 0 40px 40px rgb(162, 162, 219) inset;
+    
    
 }
 .boton2{
@@ -341,7 +337,8 @@
 
    @media (max-width:600px) {
     .home{
-        height: 530vh;
+        
+        min-height: 110vh;
        
     }
    }

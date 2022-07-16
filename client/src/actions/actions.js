@@ -3,7 +3,7 @@ import axios from  'axios'
 
 
 export const inicio = (e) => async (dispatch) => {
-    console.log("HOME")
+   
     try {    
         //const respuesta = await axios.get(`http://localhost:3001/countries`)
         const respuesta = await axios.get(`/countries`)
@@ -19,7 +19,6 @@ export const inicio = (e) => async (dispatch) => {
     }    
 }
 export const filtroCont = (countries,value) => (dispatch) => { 
-    console.log("filtro",value)
     if(value != "todos"){
         var filtro = countries.filter((item,i)=> item.continente === value)
     }else{
@@ -42,7 +41,7 @@ export const searchName = (arrayFor) => (dispatch) => {
                              
 }
 export const nameTourFu = () => async (dispatch) => {  
-    console.log("entra")
+
     //const  respuesta = await axios.get(`http://localhost:3001/nametour`)
     const  respuesta = await axios.get(`/nametour`)
     dispatch({
@@ -52,12 +51,12 @@ export const nameTourFu = () => async (dispatch) => {
                          
 }
 export const form = (e) => async (dispatch) => {   
-    console.log(e.target[3].value)
+   
     try {    
         //const  respuesta = await axios.post(`http://localhost:3001/tour`,
         const  respuesta = await axios.post(`/tour`,
         {name:e.target[0].value, dificultad:e.target[1].value, duracion:e.target[2].value, countries:e.target[3].value, temporada:e.target[4].value})          
-        console.log("res",respuesta.data)
+        
     } catch (error){
         console.log(error)
     }
@@ -71,7 +70,7 @@ export const ordenAccion = (value) => (dispatch) => {
         })                       
 }
 export const filtroTour = (value) => (dispatch) => {    
-    console.log(value)
+
     dispatch({
         type:"FILTROTOUR",
         payload:value,
